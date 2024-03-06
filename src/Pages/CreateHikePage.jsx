@@ -1,10 +1,10 @@
 
 import { useState, useEffect } from "react";
-import '../Styles/CreateHikePage.css'
 import axios from "axios";
+import '../Styles/CreateHikePage.css'
 
 
-const API_URL = "http://localhost:5005/allhikes";
+const API_URI = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
   const [name, setName] = useState("");
@@ -23,8 +23,8 @@ function CreateHikePage() {
   const getAllHikes = () => {
 
     axios
-      .get(`${API_URL}`)
-      .then((response) => setMeals(response.data))
+      .get(`${API_URI}`)
+      .then((response) => setHikes(response.data))
       .catch((error) => console.log(error));
   };
 
@@ -72,9 +72,9 @@ function CreateHikePage() {
       .post(`${API_URL}`, newHike)
       .then((response) => {
         console.log(response);
-        // Reset the form fields using the state setter functions
+
         setName("");
-        setDate(""); // Reset to an empty string to match the initial state
+        setDate(""); 
         setRoute("");
         setTime("");
         setDescription("");
@@ -131,18 +131,11 @@ function CreateHikePage() {
             <input value={img} onChange={(event) => { setImg(event.target.value) }} id="setImg" type="url" />
           </label>
 
-          {/* <label>
-            Description
-            <input value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription" type="text" />
-          </label> */}
-
           <div className="newbutton-div">
             <button className='newbutton' type="submit">Add New Hike</button>
           </div>
 
         </form>
-
-
 
 
 
