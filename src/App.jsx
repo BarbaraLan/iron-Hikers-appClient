@@ -1,5 +1,7 @@
 import SignUpPage from './Pages/SignUpPage'
 import LogInPage from './Pages/LogInPage'
+import CreateHikePage from './Pages/CreateHikePage'
+import './App.css'
 import { useState } from 'react'
 import './style/App.css'
 import { Routes, Route } from 'react-router-dom'
@@ -8,6 +10,7 @@ import HomePage from './pages/HomePage'
 import DashboardPage  from './pages/DashboardPage'
 import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
+
 
 function App() {
 
@@ -21,10 +24,12 @@ function App() {
         <Route path='/About' element={<AboutPage />} />
         <Route path='/login' element={<LogInPage/>} />
         <Route path='/signup' element={<SignUpPage/>} />
-
+     <Route path='/create-hike' element={<CreateHikePage />} />
+   
       </Routes>
       
         <Footer/>
+
     </>
   )
 }

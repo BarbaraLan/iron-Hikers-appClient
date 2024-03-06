@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import '../Styles/LogInPage.css';
 
 const API_URL = "http://localhost:5005/login";
