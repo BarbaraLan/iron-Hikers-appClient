@@ -5,6 +5,7 @@ function NavBar () {
     return (
         <nav className="navBar">
         <Link className='homeLink' to='/'> Home </Link>
+        <Link className='LogIn' to='/login'> LogIn </Link>
         </nav>
     )
 }
