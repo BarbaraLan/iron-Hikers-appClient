@@ -1,3 +1,5 @@
+import SignUpPage from './Pages/SignUpPage'
+import LogInPage from './Pages/LogInPage'
 import { useState } from 'react'
 import './style/App.css'
 import { Routes, Route } from 'react-router-dom'
@@ -17,6 +19,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/About' element={<AboutPage />} />
+        <Route path='/login' element={<LogInPage/>} />
+        <Route path='/signup' element={<SignUpPage/>} />
 
       </Routes>
       
