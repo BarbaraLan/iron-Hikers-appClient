@@ -1,11 +1,19 @@
-import { useState } from 'react'
+
+import { Routes, Route } from 'react-router-dom'
+import SignUpPage from './Pages/SignUpPage'
+import LogInPage from './Pages/LogInPage'
 import './App.css'
 
 function App() {
 
   return (
     <>
-     <h1> iron Hikers </h1>
+     <h1> Iron Hikers </h1>
+
+     <Routes>
+     <Route path='/login' element={<LogInPage/>} />
+     <Route path='/signup' element={<SignUpPage/>} />
+     </Routes>
     </>
   )
 }
