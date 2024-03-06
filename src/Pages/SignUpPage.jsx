@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Styles/SignUpPage.css';
 import axios from 'axios';
 
-const API_URL = "http://localhost:5005/auth/signup";
+const API_URI = "http://localhost:5005/auth/signup";
 
 function SignUpPage() {
 
@@ -14,7 +14,7 @@ function SignUpPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API_URL}`, { name, email, password })
+      .post(`${API_URI}`, { name, email, password })
       .then((response) => {
         console.log("Signed Up!", response.data);
 
