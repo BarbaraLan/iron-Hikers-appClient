@@ -54,13 +54,14 @@ function LogInPage() {
       
               <div className="signupbutton-div">
                 <Link to="/signup">
-                  <button className='signup-button' type="button">Sign up!</button>
+                            <button className='signup-button' type="button">Don't Have an Account - Sign up!</button>
                 </Link>
+
               </div>
-            </div>
-          </form>
-        </div>
-      );
+              </div>
+              </form>
+              </div>
+              );
 
       
     
