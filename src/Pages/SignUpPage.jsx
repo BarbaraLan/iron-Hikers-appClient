@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005/auth/signup";
 
 function SignUpPage() {
 
-    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
 
@@ -15,7 +15,7 @@ function SignUpPage() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .post(`${API_URL}`, { name, email, password })
+            .post(`${API_URL}`, { username, email, password })
             .then((response) => {
                 console.log("Signed Up!", response.data);
             })
@@ -28,8 +28,8 @@ function SignUpPage() {
         <form className="signup-formcontainer" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <label>
-        Name
-        <input value={name} onChange={(event) => setName(event.target.value)} id="setName" type="text" />
+        Username
+        <input value={username} onChange={(event) => setUsername(event.target.value)} id="setUsername" type="text" />
         </label>
 
         <label>
