@@ -3,13 +3,25 @@ import '../style/SignUpPage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = "http://localhost:5005/auth/signup";
+const API_URI = "http://localhost:5005/auth/signup";
 
 function SignUpPage() {
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post(`${API_URI}`, { name, email, password })
+      .then((response) => {
+        console.log("Signed Up!", response.data);
+
+      })
+
+    .catch ((error) => console.log("Sign Up Error!", error))
 
 
     const handleSubmit = (event) => {
