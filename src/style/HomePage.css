@@ -1,0 +1,44 @@
+h2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    padding-top: 200px;
+    color: rgb(254, 251, 231);
+}
+
+.home {
+    background-image: url("../assets/homeImg.jpg");
+    background-repeat: no-repeat;
+   background-size:cover;
+    height: 650px;
+    width: 100%;
+}
+
+.introText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    color: rgb(254, 251, 231);
+}
+
+.home2 {
+    background-color: #303030;
+    height: 400px;
+    width: 100%;
+}
+
+h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    padding-top: 180px;
+    color: rgb(254, 251, 231);
+}
