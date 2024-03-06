@@ -1,21 +1,32 @@
-
-import { Routes, Route } from 'react-router-dom'
 import SignUpPage from './Pages/SignUpPage'
 import LogInPage from './Pages/LogInPage'
-import './App.css'
+import { useState } from 'react'
+import './style/App.css'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import HomePage from './pages/HomePage'
+import DashboardPage  from './pages/DashboardPage'
+import Footer from './components/Footer'
+import AboutPage from './pages/AboutPage'
 
 function App() {
 
   return (
     <>
-     <h1> Iron Hikers </h1>
+      <NavBar />
 
-     <Routes>
-     <Route path='/login' element={<LogInPage/>} />
-     <Route path='/signup' element={<SignUpPage/>} />
-     </Routes>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/About' element={<AboutPage />} />
+        <Route path='/login' element={<LogInPage/>} />
+        <Route path='/signup' element={<SignUpPage/>} />
+
+      </Routes>
+      
+        <Footer/>
     </>
   )
 }
 
-export default App
+export default App;
