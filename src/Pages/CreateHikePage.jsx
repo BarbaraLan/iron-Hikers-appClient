@@ -4,7 +4,7 @@ import axios from "axios";
 import '../style/CreateHikePage.css'
 
 
-const API_URI = "http://localhost:5005"; //not sure of path name
+const API_URL = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
   const [name, setName] = useState("");
@@ -25,11 +25,10 @@ function CreateHikePage() {
   const getAllHikes = () => {
 
     axios
-      .get(`${API_URI}`)
+      .get(`${API_URL}`)
       .then((response) => setHikes(response.data))
       .catch((error) => console.log(error));
   };
-
 
 
   useEffect(() => {
@@ -38,7 +37,6 @@ function CreateHikePage() {
 
 
   const handleSubmit = (event) => {
-    window.alert('your hike was created')
     event.preventDefault();
 
     if (name === "") {
@@ -72,7 +70,7 @@ function CreateHikePage() {
 
 
     axios
-      .post(`${API_URL}`, newHike)
+      .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
         const successDescription = success.response.data.successMessage;
       setSuccessMessage(successDescription);
@@ -85,7 +83,7 @@ function CreateHikePage() {
         setImg("");
         getAllHikes();
       })
-      
+
       .catch((error) => {const errorDescription = error.response.data.errorMessage;
       setErrorMessage(errorDescription)});
   };
