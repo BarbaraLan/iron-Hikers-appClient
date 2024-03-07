@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../style/LogInPage.css';
 
-const API_URL = "http://localhost:5005/login";
+const API_URL = "http://localhost:5005/auth/login";
 
 function LogInPage() {
     const [email, setEmail] = useState("");
