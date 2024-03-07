@@ -8,6 +8,7 @@
     border-radius: 8px; 
     color: #5b5c38;
     gap: 20px;
+    background-color: rgb(254, 251, 231);
 }
 
 label{
@@ -29,24 +30,10 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: blue;
+    color: #303030;
     font-weight: 800;
     cursor: pointer;
     padding: 10px;
     margin: 20px 0px;
     width: 200px;
 }
-
-
-/*
-.all-hikes-section {
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 80%;
-    max-width: 700px; 
-    margin: 40px;
-    display: flex;
-    flex-direction: column;
-    color: #5b5c38;
-} */
