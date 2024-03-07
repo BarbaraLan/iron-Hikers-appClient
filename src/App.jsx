@@ -23,7 +23,8 @@ function App() {
         <Route path='/login' element={<LogInPage/>} />
         <Route path='/signup' element={<SignUpPage/>} />
      <Route path='/create-hike' element={<CreateHikePage />} />
-   
+        
+
       </Routes>
       
         <Footer/>

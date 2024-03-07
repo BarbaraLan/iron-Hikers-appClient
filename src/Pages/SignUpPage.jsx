@@ -11,18 +11,24 @@ function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [successMessage, setSuccessMessage] = useState(undefined);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API_URI}`, { name, email, password })
+      .post(API_URI, { name, email, password })
       .then((response) => {
-        console.log("Signed Up!", response.data);
-        alert("Signed up successfully!");
+
+
+        const successDescription = "The user has been created!"
+        setSuccessMessage(successDescription);
+        setErrorMessage(undefined); 
       })
       .catch((error) => {
-        console.log("Sign Up Error!", error.response);
-        alert("Error signing up. Please try again. Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.");
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
       });
   };
 
@@ -56,6 +62,10 @@ function SignUpPage() {
             <button className='alreadylogged-button' type="button">Already Have an Account - Log In!</button>
           </Link>
         </div>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
+
       </form>
     </div>
   );
