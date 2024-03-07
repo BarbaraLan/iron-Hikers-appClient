@@ -1,22 +1,26 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import '../Styles/CreateHikePage.css'
+import '../style/CreateHikePage.css'
 
 
 const API_URI = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
+
+
+  const creator = userId; 
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [route, setRoute] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [img, setImg] = useState("");
+ 
+  // need to add attendees and comments ^
 
   const [hikes, setHikes] = useState([]);
 
-  const newHike = { name, date, route, time, description, img };
+  const newHike = { creator, name, date, route, time, description, img };
   
 
   
@@ -27,8 +31,6 @@ function CreateHikePage() {
       .then((response) => setHikes(response.data))
       .catch((error) => console.log(error));
   };
-
-
 
   useEffect(() => {
     getAllHikes();
