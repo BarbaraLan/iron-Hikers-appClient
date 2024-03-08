@@ -22,11 +22,15 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/About' element={<AboutPage />} />
+
         <Route path='/login' element={<LogInPage />} />
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/create-hike' element={<CreateHikePage />} />
         <Route path='/routes' element={<RoutesPage />} />
         <Route path='/routes/:create' element={<CreateRoutePage />} />
+
+     <Route path='/create-hike' element={<CreateHikePage />} />
+
 
       </Routes>
 

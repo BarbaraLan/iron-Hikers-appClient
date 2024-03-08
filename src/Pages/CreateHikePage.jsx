@@ -19,6 +19,7 @@ function CreateHikePage() {
   const [successMessage, setSuccessMessage] = useState(undefined);
   const [existingRoutes, setExistingRoutes] = useState([]);
 
+
   const [hikes, setHikes] = useState([]);
 
   const newHike = { name, date, route, startTime, description };

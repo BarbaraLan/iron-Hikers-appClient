@@ -2,24 +2,38 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../style/LogInPage.css';
+import { useNavigate } from 'react-router-dom';
 
-const API_URL = "http://localhost:5005/login";
+const API_URL = "http://localhost:5005/auth/login";
+
 
 function LogInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [successMessage, setSuccessMessage] = useState(undefined);
+
+  const navigate = useNavigate(); 
+
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .post(`${API_URL}`, { email, password })
+            .post(API_URL, { email, password })
             .then((response) => {
-                console.log("Logged In!", response.data);
+              const successDescription = "The user has been logged in!"
+              setSuccessMessage(successDescription);
+              setErrorMessage(undefined);
+              navigate('/dashboard');
             })
             .catch((error) => {
-                console.log("Log In Error!", error);
+              const errorDescription = error.response.data.message;
+              setErrorMessage(errorDescription);
             });
     };
+
+
+
 
 
     return (
