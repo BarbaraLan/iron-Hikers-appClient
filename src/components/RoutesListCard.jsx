@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../style/RoutesListCard.css'
 
 function RoutesListCard(props) {
-    const { name, city, length, image, ratings } = props;
+    const { name, city, length, image, ratings } = props.route;
 
     return (
         <Link>
