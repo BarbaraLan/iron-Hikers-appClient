@@ -2,6 +2,7 @@ import '../style/Routes.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import RoutesListCard from '../components/RoutesListCard';
+import { Link } from 'react-router-dom';
 
 function Routes() {
 
@@ -53,19 +54,21 @@ function Routes() {
     return (
         <>
             <h3> this is the Routes Page</h3>
-
+                <Link to= '/routes/create'> Create New Route </Link>
             <div id="routes-container">
                 {existingRoutes? existingRoutes.map((route) => {
                     return (
+                        <Link key={route._id} to={`/routes/${route._id}`}>
                         <RoutesListCard
-                            key={route._id}
                             route={route}
                         />
+                        </Link>
                     );
                 })
                 : 'Not Routes available'
                 }
             </div>
+
         </>
     )
 }
