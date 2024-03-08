@@ -12,6 +12,8 @@ import CreateRoutePage from './pages/CreateRoutePage'
 import RouteIdPage from './pages/RouteIdPage'
 import JoinHikePage from "./pages/JoinHikePage";
 import AboutPage from './pages/AboutPage'
+import UserPage from './pages/UserPage'
+import CityPage from './pages/City'
 import Footer from './components/Footer'
 import HikeIdPage from './pages/HikeIdPage'
 
@@ -32,6 +34,8 @@ function App() {
         <Route path='/routes/:routeId' element={<RouteIdPage />} />
         <Route path="/join-hike" element={<JoinHikePage />}/>
         <Route path='/hikes/:hikeId' element={<HikeIdPage />} />
+        <Route path='/user' element={<UserPage />} />
+        <Route path='/city' element={<CityPage />} />
       </Routes>
 
       <Footer />
