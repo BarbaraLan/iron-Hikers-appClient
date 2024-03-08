@@ -2,38 +2,36 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import '../style/CreateHikePage.css'
+import { useNavigate } from "react-router-dom";
 
-
-const API_URI = "http://localhost:5005"; //not sure of path name
+const API_URL = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
+  const navigate = useNavigate()
 
-
-  const creator = userId; 
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
-  const [route, setRoute] = useState("");
-  const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
- 
-  // need to add attendees and comments ^
+  const [route, setRoute] = useState("");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [existingRoutes, setExistingRoutes] = useState([]);
   const [hikes, setHikes] = useState([]);
 
-  const newHike = { creator, name, date, route, time, description, img };
-  
+  const newHike = { name, date, route, startTime, description };
 
-  
-  const getAllHikes = () => {
-
+  const getAllRoutes = () => {
     axios
-      .get(`${API_URI}`)
-      .then((response) => setHikes(response.data))
-      .catch((error) => console.log(error));
+      .get('http://localhost:5005/api/routes')
+      .then((response) => {
+        setExistingRoutes(response.data);
+      })
+      .catch((error) => error)
   };
 
   useEffect(() => {
-    getAllHikes();
+    getAllRoutes();
   }, []);
 
 
@@ -51,57 +49,54 @@ function CreateHikePage() {
     }
 
     if (route === "") {
-        window.alert("Please enter a route length");
-        return;
-      }
-
-      if (time === "") {
-        window.alert("Please enter a time");
-        return;
-      }
-
-    if (description === "") {
-        window.description ="Please enter a description";
+      window.alert("Please enter a route length");
+      return;
     }
 
-      if (img === "") {
-        newHike.img = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-      }
+    if (startTime === "") {
+      window.alert("Please enter a time");
+      return;
+    }
 
-
+    if (description === "") {
+      window.description = "Please enter a description";
+    }
 
     axios
-      .post(`${API_URL}`, newHike)
+      .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
-        console.log(response);
+        console.log(response)
+        navigate(`/hikes/${response.data._id}`)
 
         setName("");
-        setDate(""); 
+        setDate("");
         setRoute("");
-        setTime("");
+        setStartTime("");
         setDescription("");
-        setImg("");
         getAllHikes();
-
       })
-      .catch((error) => console.log(error));
+
+      .catch((error) => {
+        const errorDescription = error.response.data.errorMessage;
+        setErrorMessage(errorDescription)
+      });
   };
 
   const handleDelete = (id) => {
     axios
-        .delete(`${API_URL}/${id}`)
-        .then((response) => {
-            console.log(response);
-            getAllHikes()
-        })
-        .catch((error) => console.log(error));
+      .delete(`${API_URL}/api/hikes/${id}`)
+      .then((response) => {
+        console.log(response);
+        getAllHikes()
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
     <>
       <div className="createhike-container">
         <form className="createhike-formcontainer" onSubmit={handleSubmit}>
-          <h2>Add your Hike</h2>
+          <h6>Add your Hike</h6>
 
           <label >
             Hike Name
@@ -110,17 +105,20 @@ function CreateHikePage() {
 
           <label>
             Date
-            <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="number" />
+            <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="date" />
           </label>
 
           <label>
             Route
-            <input value={route} onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="text" />
+            <select onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" >
+              <option value=""> choose your route</option>
+              {existingRoutes.map((route) => { return (<option key={route._id} value={route._id}>{route.name}</option>) })}
+            </select>
           </label>
 
           <label>
             Time
-            <input value={time} onChange={(event) => { setTime(event.target.value) }} id="setTime" type="number" />
+            <input value={startTime} onChange={(event) => { setStartTime(event.target.value) }} id="setTime" type="time" />
           </label>
 
           <label>
@@ -128,25 +126,20 @@ function CreateHikePage() {
             <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription" cols="20" rows="5"></textarea>
           </label>
 
-          <label>
-            Photos
-            <input value={img} onChange={(event) => { setImg(event.target.value) }} id="setImg" type="url" />
-          </label>
-
           <div className="newbutton-div">
-            <button className='newbutton' type="submit">Add New Hike</button>
+            <button onClick={handleSubmit} className='newbutton' type="submit">Add New Hike</button>
+          </div>
+
+          <div>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
 
         </form>
-
-
-
         {hikes.map((hike) => {
           return (
-            <div className="allhikes-section" key={hike.id} >
+            <div className="allhikes-section" key={hike._id} >
               <h3>{hike.name}</h3>
-
-              <button className="delete-button" onClick={() => handleDelete(hike.id)}>Delete</button>
+              <button className="delete-button" onClick={() => handleDelete(hike._id)}>Delete</button>
 
             </div>
           );
@@ -154,7 +147,8 @@ function CreateHikePage() {
 
       </div>
     </>
-  )};
+  )
+};
 
 
 export default CreateHikePage;
