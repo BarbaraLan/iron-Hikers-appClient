@@ -52,6 +52,7 @@ function Calendar() {
       .get("http://localhost:5005/days") //* TO-DO: FIND THE RIGHT ENDPOINT
       .then((response) => {
         setDayHikesArray([...response.data]);
+        //* TO-DO: get number of hikes for each day in the month
       })
       .catch((error) => error);
   }, []);
@@ -83,8 +84,11 @@ function Calendar() {
 
         {/* DAY CELLS */}
         {days.map((day) => (
+          //* TO-DO: Update this so that only days with hikes scheduled in them have links
           <Link key={day} to={`/day/${formatDate(day)}`}>
-          <div className={(formatDate(day)===(formatDate(today))? "day day-current" : "day")}>
+          {/* //*TO-DO: Make sure the current day is highlighted */
+          }
+          <div className={(formatDate((day))===(formatDate(today.getDate()))? "day day-current" : "day")}>
             {day}
           </div>
           </Link>
