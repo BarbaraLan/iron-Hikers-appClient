@@ -6,7 +6,7 @@ function DashboardPage () {
         <>
         <h6> You are going to this Hikes:  </h6>
         <hr />
-        <Link className='JoinHike' to='/join/hike'> Join Hike </Link>
+        <Link className='JoinHike' to='/join-hike'> Join Hike </Link>
         <Link className='CreateHike' to='/create-hike'> Create new Hike </Link>
         </>
     )
