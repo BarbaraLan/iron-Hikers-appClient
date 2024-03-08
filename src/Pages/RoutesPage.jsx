@@ -1,9 +1,11 @@
 import '../style/Routes.css'
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import RoutesListCard from '../components/RoutesListCard';
 
 function Routes() {
 
-    const [existingRoutes, setExistingRoutes] = useState(""); // Routes database array
+    const [existingRoutes, setExistingRoutes] = useState([]); // Routes database array
     const [routeSearchResults, setRouteSearchResults] = useState([]); // Search results arrayconst [name, setName] = useState("");
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
@@ -24,7 +26,7 @@ function Routes() {
         axios
             .get('http://localhost:5005/api/routes')
             .then((response) => {
-                setExistingRoutes(response.data.routes);
+                setExistingRoutes(response.data);
             })
             .catch((error) => error)
     };
@@ -53,14 +55,16 @@ function Routes() {
             <h3> this is the Routes Page</h3>
 
             <div id="routes-container">
-                {existingRoutes.map((route) => {
+                {existingRoutes? existingRoutes.map((route) => {
                     return (
                         <RoutesListCard
-                            key={key}
+                            key={route._id}
                             route={route}
                         />
                     );
-                })}
+                })
+                : 'Not Routes available'
+                }
             </div>
         </>
     )

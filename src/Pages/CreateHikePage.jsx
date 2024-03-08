@@ -2,37 +2,38 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import '../style/CreateHikePage.css'
-
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
+  const navigate = useNavigate()
+
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
-  const [route, setRoute] = useState("");
-  const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [img, setImg] = useState("");
+  const [route, setRoute] = useState("");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
+  const [existingRoutes, setExistingRoutes] = useState([]);
 
   const [hikes, setHikes] = useState([]);
 
-  const newHike = { name, date, route, time, description, img };
-  
+  const newHike = { name, date, route, startTime, description };
 
-  
-  const getAllHikes = () => {
-
-    axios
-      .get(`${API_URL}`)
-      .then((response) => setHikes(response.data))
-      .catch((error) => console.log(error));
+  const getAllRoutes = () => {
+      axios
+          .get('http://localhost:5005/api/routes')
+          .then((response) => {
+              setExistingRoutes(response.data);
+          })
+          .catch((error) => error)
   };
 
-
   useEffect(() => {
-    getAllHikes();
+    getAllRoutes();
   }, []);
 
 
@@ -54,7 +55,7 @@ function CreateHikePage() {
         return;
       }
 
-      if (time === "") {
+      if (startTime === "") {
         window.alert("Please enter a time");
         return;
       }
@@ -63,24 +64,17 @@ function CreateHikePage() {
         window.description ="Please enter a description";
     }
 
-      if (img === "") {
-        newHike.img = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-      }
-
-
-
     axios
       .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
-        const successDescription = success.response.data.successMessage;
-      setSuccessMessage(successDescription);
+        console.log(response)
+        navigate (`/hikes/${response.data._id}`)
 
         setName("");
         setDate(""); 
         setRoute("");
-        setTime("");
+        setStartTime("");
         setDescription("");
-        setImg("");
         getAllHikes();
       })
 
@@ -116,22 +110,20 @@ function CreateHikePage() {
 
           <label>
             Route
-            <input value={route} onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" />
+            <select onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" > 
+            <option value=""> choose your route</option>
+            {existingRoutes.map((route)=>{ return (<option value={route._id}>{route.name}</option>)})} 
+            </select>
           </label>
 
           <label>
             Time
-            <input value={time} onChange={(event) => { setTime(event.target.value) }} id="setTime" type="time" />
+            <input value={startTime} onChange={(event) => { setStartTime(event.target.value) }} id="setTime" type="time" />
           </label>
 
           <label>
             Description
             <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription" cols="20" rows="5"></textarea>
-          </label>
-
-          <label>
-            Photos
-            <input value={img} onChange={(event) => { setImg(event.target.value) }} id="setImg" type="url" />
           </label>
 
           <div className="newbutton-div">

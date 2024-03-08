@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 function CreateRoutePage(props) {
     const {name, city, length, duration, type, description, map, image, routeComments, ratings } = props;
     const addNewRoute = props.addNewRoute;
+  
 
     return (
         <form className="routes-list" onSubmit={handleSubmit}>
