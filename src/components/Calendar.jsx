@@ -7,7 +7,7 @@ function Calendar() {
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
   const [monthDays, setMonthDays] = useState(
-    new Date(year, month, 0).getDate()
+    new Date(year, month+1, 0).getDate()
   );
   const [firstDay, setFirstDay] = useState(new Date(year, month, 0).getDay());
 
