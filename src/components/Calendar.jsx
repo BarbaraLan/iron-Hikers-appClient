@@ -1,5 +1,6 @@
 import "../style/Calendar.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Calendar() {
@@ -7,7 +8,7 @@ function Calendar() {
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
   const [monthDays, setMonthDays] = useState(
-    new Date(year, month, 0).getDate()
+    new Date(year, month+1, 0).getDate()
   );
   const [firstDay, setFirstDay] = useState(new Date(year, month, 0).getDay());
 
@@ -51,6 +52,7 @@ function Calendar() {
       .get("http://localhost:5005/days") //* TO-DO: FIND THE RIGHT ENDPOINT
       .then((response) => {
         setDayHikesArray([...response.data]);
+        //* TO-DO: get number of hikes for each day in the month
       })
       .catch((error) => error);
   }, []);
@@ -82,9 +84,14 @@ function Calendar() {
 
         {/* DAY CELLS */}
         {days.map((day) => (
-          <div key={day} className="day">
+          //* TO-DO: Update this so that only days with hikes scheduled in them have links
+          <Link key={day} to={`/day/${formatDate(day)}`}>
+          {/* //*TO-DO: Make sure the current day is highlighted */
+          }
+          <div className={(formatDate((day))===(formatDate(today.getDate()))? "day day-current" : "day")}>
             {day}
           </div>
+          </Link>
         ))}
       </div>
     </>
