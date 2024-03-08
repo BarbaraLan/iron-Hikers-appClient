@@ -4,7 +4,7 @@ import axios from "axios";
 import '../style/CreateHikePage.css'
 
 
-const API_URI = "http://localhost:5005"; //not sure of path name
+const API_URL = "http://localhost:5005"; //not sure of path name
 
 function CreateHikePage() {
 
@@ -15,8 +15,11 @@ function CreateHikePage() {
   const [route, setRoute] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
- 
-  // need to add attendees and comments ^
+
+  const [img, setImg] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [successMessage, setSuccessMessage] = useState(undefined);
+
 
   const [hikes, setHikes] = useState([]);
 
@@ -27,7 +30,7 @@ function CreateHikePage() {
   const getAllHikes = () => {
 
     axios
-      .get(`${API_URI}`)
+      .get(`${API_URL}`)
       .then((response) => setHikes(response.data))
       .catch((error) => console.log(error));
   };
@@ -71,9 +74,10 @@ function CreateHikePage() {
 
 
     axios
-      .post(`${API_URL}`, newHike)
+      .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
-        console.log(response);
+        const successDescription = success.response.data.successMessage;
+      setSuccessMessage(successDescription);
 
         setName("");
         setDate(""); 
@@ -82,9 +86,10 @@ function CreateHikePage() {
         setDescription("");
         setImg("");
         getAllHikes();
-
       })
-      .catch((error) => console.log(error));
+
+      .catch((error) => {const errorDescription = error.response.data.errorMessage;
+      setErrorMessage(errorDescription)});
   };
 
   const handleDelete = (id) => {
@@ -101,7 +106,7 @@ function CreateHikePage() {
     <>
       <div className="createhike-container">
         <form className="createhike-formcontainer" onSubmit={handleSubmit}>
-          <h2>Add your Hike</h2>
+          <h6>Add your Hike</h6>
 
           <label >
             Hike Name
@@ -110,17 +115,17 @@ function CreateHikePage() {
 
           <label>
             Date
-            <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="number" />
+            <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="date" />
           </label>
 
           <label>
             Route
-            <input value={route} onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="text" />
+            <input value={route} onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" />
           </label>
 
           <label>
             Time
-            <input value={time} onChange={(event) => { setTime(event.target.value) }} id="setTime" type="number" />
+            <input value={time} onChange={(event) => { setTime(event.target.value) }} id="setTime" type="time" />
           </label>
 
           <label>
@@ -134,7 +139,12 @@ function CreateHikePage() {
           </label>
 
           <div className="newbutton-div">
-            <button className='newbutton' type="submit">Add New Hike</button>
+            <button onClick= {handleSubmit} className='newbutton' type="submit">Add New Hike</button>
+          </div>
+
+          <div>
+          { errorMessage && <p className="error-message">{errorMessage}</p> }
+          { successMessage && <p className="success-message">{successMessage}</p> }
           </div>
 
         </form>
