@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
 import RoutesPage from './pages/RoutesPage'
 import CreateRoutePage from './pages/CreateRoutePage'
+import RouteIdPage from './pages/RouteIdPage'
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/create-hike' element={<CreateHikePage />} />
         <Route path='/routes' element={<RoutesPage />} />
-        <Route path='/routes/:create' element={<CreateRoutePage />} />
+        <Route path='/routes/create' element={<CreateRoutePage />} />
+        <Route path='/routes/:routeId' element={<RouteIdPage />} />
 
      <Route path='/create-hike' element={<CreateHikePage />} />
 
