@@ -1,9 +1,9 @@
-import '../style/RouteIdPage.css'
+import '../style/HikeIdPage.css'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function RouteIdPage(props) {
+function HikeIdPage(props) {
 
     const [existingRoute, setExistingRoute] = useState('');
 
@@ -11,13 +11,12 @@ function RouteIdPage(props) {
         event.preventDefault();
     };
     
-    const routId = useParams().routeId
-    console.log(routId)
+    const hikeId = useParams().hikeId
     const { name, city, length, duration, intensity, type, description, map, routeComments, addedBy,  image, ratings } = existingRoute;
 
-    const routeIdCall = () => {
+    const hikeIdCall = () => {
         axios
-            .get(`http://localhost:5005/api/routes/${routId}`)
+            .get(`http://localhost:5005/api/hikes/${hikeId}`)
             .then((response) => {
                 setExistingRoute(response.data);
             })
@@ -27,7 +26,7 @@ function RouteIdPage(props) {
     }
 
     useEffect(() => {
-        routeIdCall();
+        hikeIdCall();
     }, [])
 
 
@@ -48,4 +47,4 @@ function RouteIdPage(props) {
         </div>
     )
 }
-export default RouteIdPage;
+export default HikeIdPage;
