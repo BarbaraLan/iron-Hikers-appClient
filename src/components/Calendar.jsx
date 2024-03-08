@@ -1,5 +1,6 @@
 import "../style/Calendar.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Calendar() {
@@ -82,9 +83,11 @@ function Calendar() {
 
         {/* DAY CELLS */}
         {days.map((day) => (
-          <div key={day} className="day">
+          <Link key={day} to={`/day/${formatDate(day)}`}>
+          <div className={(formatDate(day)===(formatDate(today))? "day day-current" : "day")}>
             {day}
           </div>
+          </Link>
         ))}
       </div>
     </>

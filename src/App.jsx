@@ -17,6 +17,8 @@ import JoinHikePage from "./pages/JoinHikePage";
 import RoutesPage from "./pages/RoutesPage";
 import CreateRoutePage from "./pages/CreateRoutePage";
 
+import DayHikesPage from "./pages/DayHikesPage"
+
 function App() {
   return (
     <>
@@ -36,6 +38,7 @@ function App() {
         <Route path="/routes" element={<RoutesPage />} />
         <Route path="/routes/:create" element={<CreateRoutePage />} />
 
+        <Route path="/day/:date" element={<DayHikesPage />}/>
       </Routes>
 
       <Footer />

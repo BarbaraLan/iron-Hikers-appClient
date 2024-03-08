@@ -5,7 +5,7 @@ function HomePage() {
     return (
         <>
             <div className='home'> 
-                <h2> Welcome to Iron Hikers </h2>
+                <h1> Welcome to Iron Hikers </h1>
                 <p className='introText'> To the best experience ever created </p>
             </div>
 
