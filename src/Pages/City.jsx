@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../style/City.css';
+import axios from 'axios';
 
 // npm install countries-list gives you all countries says AI. will put on backlog to try
 
@@ -38,9 +39,23 @@ function CityPage() {
         setSelectedCity('');
     };
 
-    const handleCityChange = (event) => {
-        setSelectedCity(event.target.value);
-    };
+    const handleCityChange = async (event) => {
+        const city = event.target.value;
+        setSelectedCity(city);
+
+    try {
+       
+        const response = await axios.post('http://localhost:5000/api/user/update', {
+            userID: 'user_id', 
+            city: city
+        });
+        console.log('City updated successfully. Response:', response.data);
+    } catch (error) {
+        console.error('Error updating city:', error);
+    }
+};
+
+    
 
     return (
         <div>

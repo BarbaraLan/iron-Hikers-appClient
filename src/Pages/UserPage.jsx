@@ -11,6 +11,8 @@ const API_URL = "http://localhost:5005/api/user/update";
 
 function UserPage() {
 
+    
+
     const { userInfo } = useContext(AuthContext);
     const [data, setData] = useState(false);
 
@@ -152,6 +154,7 @@ function UserPage() {
             <button type="button" onClick={() => setShowImgInput(!showImgInput)}>Select Image</button>
 
             <button onClick={handleSubmission}>Store my data</button>
+            
 
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}

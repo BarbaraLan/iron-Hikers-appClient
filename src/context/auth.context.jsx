@@ -1,6 +1,6 @@
 // src/context/theme.context.jsx
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
@@ -35,6 +35,10 @@ function AuthProviderWrapper(props) {
                 
         }
     }
+
+    useEffect(() => {
+    authenticateUser()
+    }, []);
 
     const logoutUser = () => {
         localStorage.removeItem('authToken'); 
