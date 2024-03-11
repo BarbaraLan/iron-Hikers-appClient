@@ -8,7 +8,7 @@ function AuthProviderWrapper(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
-    const API_URL = "http://localhost:5000"
+    const API_URL = "http://localhost:5005"
 
     const [userInfo, setUserInfo] = useState(null);
 
@@ -36,12 +36,18 @@ function AuthProviderWrapper(props) {
         }
     }
 
+    const logoutUser = () => {
+        localStorage.removeItem('authToken'); 
+        setIsLoggedIn(false); 
+        setUserInfo(null); 
+    };
+
     const storeToken = (token) => {
         localStorage.setItem('authToken', token);
     }
 
     return (
-        <AuthContext.Provider value={{ userInfo, setUserInfo, storeToken, authenticateUser }}>
+        <AuthContext.Provider value={{ userInfo, setUserInfo, storeToken, authenticateUser, logoutUser, isLoggedIn}}>
             {props.children}
         </AuthContext.Provider>
     );

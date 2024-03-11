@@ -1,139 +1,169 @@
-import React, { useState, useEffect, createContext } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react';
 import '../style/UserPage.css';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import axios from 'axios';
 
+
+const API_URL = "http://localhost:5005/api/user/update";
+
+//axios call to get username, and email 
 
 function UserPage() {
 
+    const { userInfo } = useContext(AuthContext);
+    const [data, setData] = useState(false);
 
-    const [user, setUser] = useState({});
-    const [formData, setFormData] = useState({
-        name: '',
-        age: '',
-        likes: '',
-        hobbies: '',
-        addinfo: '',
-        img: ''
-    });
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [hobbies, setHobbies] = useState("");
+    const [likes, setLikes] = useState("");
+    const [description, setDescription] = useState("");
+    const [img, setImg] = useState("");
+    const [showImgInput, setShowImgInput] = useState(false);
+    console.log(userInfo);
 
-    const [displayData, setDisplayData] = useState({
-        name: '',
-        age: '',
-        likes: '',
-        hobbies: '',
-        addinfo: '',
-        img: ''
-    });
+    const [errorMessage, setErrorMessage] = useState(undefined);
+    const [successMessage, setSuccessMessage] = useState(undefined);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+    function handleSubmission() {
+        const userData = {
+            userId: userInfo._id,
+            age: age,
+            hobbies: hobbies,
+            likes: likes,
+            description: description,
+            img: ""
+        };
+        console.log(userData);
 
-    const handleFieldSubmit = (field) => {
-        setDisplayData({ ...displayData, [field]: formData[field] });
-    };
-
-    const getUserinfo = () => {
         axios
-            .get('http://localhost:5005/user') // not sure of correct endpoint
-            .then((response) => getUser(response.data))
-            .catch((error) => console.error(error));
-    };
+            .put(`${API_URL}`, userData)
+            .then((response) => {
+                response.data
+                console.log(response.data)
+                const successDescription = "Your data has been saved!"
+                setSuccessMessage(successDescription);
+                setErrorMessage(undefined);
+            })
+            .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+                setSuccessMessage(undefined);
+            });
+
+
+
+
+    }
+
+    function toggleGetData() {
+        const userInfo = JSON.parse(localStorage.getItem("userInfo") || '{}');
+        if (userInfo) {
+            setAge(userInfo.Age || "");
+            setHobbies(userInfo.Hobbies || "");
+            setLikes(userInfo.Likes || "");
+            setDescription(userInfo.Description || "");
+            setImg(userInfo.Img || "");
+            setData(true);
+        }
+    }
+
 
     useEffect(() => {
-        getUserinfo();
+        toggleGetData();
     }, []);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImg(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+
+
+
+        const handleLogout = () => {
+
+
+            const navigate = useNavigate();
+
+
+            logoutUser();
+            navigate('/');
+
+        };
+    };
 
     return (
 
-        ///user/update - PUT/PATCH route to edit currently logged in user info ?
 
-        <div className="yourinfodiv">
-            <h2>Your Info.</h2>
-            <div>
-                <label>Username: </label>
-                <p>{user.name}</p>
-                <label>Email: </label>
-                <p>{user.email}</p>
-                <label>Password: </label>
-                <p>{user.password}</p>
 
-                <label>
-                    Name:
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
-                    <button type="button" onClick={() => handleFieldSubmit('name')}>Set</button>
-                </label>
-                {displayData.name && <div>{displayData.name}</div>}
-            </div>
-            <div>
-                <label>
-                    Age:
-                    <input
-                        type="number" 
-                        name="age"
-                        value={formData.age}
-                        onChange={handleChange}
-                    />
-                    <button type="button" onClick={() => handleFieldSubmit('age')}>Set</button>
-                </label>
-                {displayData.age && <div>{displayData.age}</div>}
-            </div>
-            <div>
-                <label>
-                    Likes:
-                    <input
-                        type="text"
-                        name="likes"
-                        value={formData.likes}
-                        onChange={handleChange}
-                    />
-                    <button type="button" onClick={() => handleFieldSubmit('likes')}>Set</button>
-                </label>
-                {displayData.likes && <div>{displayData.likes}</div>}
-            </div>
-            <div>
-                <label>
-                    Hobbies:
-                    <textarea
-                        name="hobbies"
-                        value={formData.hobbies}
-                        onChange={handleChange} />
-                    <button type="button" onClick={() => handleFieldSubmit('hobbies')}>Set</button>
-                </label>
-                {displayData.hobbies && <div>{displayData.hobbies}</div>}
-            </div>
 
-            <div>
-                <label>
-                    Additional Info.
-                    <textarea
-                        name="addinfo"
-                        value={formData.addinfo}
-                        onChange={handleChange} />
-                    <button type="button" onClick={() => handleFieldSubmit('addinfo')}>Set</button>
-                </label>
-                {displayData.addinfo && <div>{displayData.addinfo}</div>}
-            </div>
-            <div>
-                <label>
-                    Upload Image:
-                    <input
-                        type="file"
-                        name="image"
-                        onChange={handleChange}
-                    />
-                </label>
-                
-                
-            </div>
+        <div>
+
+            {data && (
+                <div className="data">
+                    <div>Name - {name}</div>
+                    <div>Age - {age}</div>
+                    <div>Hobbies - {hobbies}</div>
+                    <div>Likes - {likes}</div>
+                    <div>Additional Info. - {description}</div>
+                    {img && <div> <img src={img} alt="User" style={{ maxWidth: '100px', maxHeight: '100px' }} /></div>}
+                </div>
+            )}
+
+
+
+            <label htmlFor="age">Age</label>
+            <input
+                type="number"
+                name="age"
+                placeholder="Enter your age"
+                onChange={(e) => setAge(e.target.value)}
+                value={age}
+            />
+            <label htmlFor="hobbies">Hobbies</label>
+            <input
+                type="text"
+                name="hobbies"
+                placeholder="Type your hobbies"
+                onChange={(e) => setHobbies(e.target.value)}
+                value={hobbies}
+            />
+            <label htmlFor="likes">Likes</label>
+            <input
+                type="text"
+                name="likes"
+                placeholder="Type your likes"
+                onChange={(e) => setLikes(e.target.value)}
+                value={likes}
+            />
+            <label htmlFor="description">Additional Info.</label>
+            <textarea
+                name="description"
+                placeholder="Describe yourself"
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+            ></textarea>
+            <button type="button" onClick={() => setShowImgInput(!showImgInput)}>Select Image</button>
+
+            <button onClick={handleSubmission}>Store my data</button>
+
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
+
+
+
         </div>
+
     );
 }
 
 export default UserPage;
+
+

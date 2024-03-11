@@ -4,7 +4,7 @@ import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005"; //not sure of path name
+const API_URL = "http://localhost:5005/API";
 
 function CreateHikePage() {
   const navigate = useNavigate()
