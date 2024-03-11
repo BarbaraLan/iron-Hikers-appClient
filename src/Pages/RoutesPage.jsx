@@ -53,9 +53,9 @@ function Routes() {
 
     return (
         <>
-            <h3> this is the Routes Page</h3>
-                <Link to= '/routes/create'> Create New Route </Link>
-            <div id="routes-container">
+            <h2> this is the Routes Page</h2>
+                <Link className='create-route' to= '/routes/create'> Create New Route </Link>
+            <div className="routes-container">
                 {existingRoutes? existingRoutes.map((route) => {
                     return (
                         <Link key={route._id} to={`/routes/${route._id}`}>
