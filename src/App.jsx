@@ -19,6 +19,9 @@ import HikeIdPage from './pages/HikeIdPage'
 
 import DayHikesPage from "./pages/DayHikesPage"
 
+import IsPrivate from './components/RouteGuard'
+
+
 function App() {
   return (
     <>
@@ -37,16 +40,59 @@ function App() {
         <Route path='/routes/create' element={<CreateRoutePage />} />
         <Route path='/routes/:routeId' element={<RouteIdPage />} />
           
-        <Route path="/join-hike" element={<JoinHikePage />}/>
+       {/*  <Route path="/join-hike" element={<JoinHikePage />}/>
         <Route path='/hikes/create' element={<CreateHikePage />} />
-        <Route path='/hikes/:hikeId' element={<HikeIdPage />} />
+        <Route path='/hikes/:hikeId' element={<HikeIdPage />} /> */}
 
         <Route path="/routes" element={<RoutesPage />} />
 
         <Route path="/day/:date" element={<DayHikesPage />}/>
         
         <Route path='/user' element={<UserPage />} />
-        <Route path='/city' element={<CityPage />} />
+        {/* <Route path='/city' element={<CityPage />} /> */}
+
+
+
+        <Route
+          path="/city"
+          element={
+            <IsPrivate>
+              <CityPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/hikes/create"
+          element={
+            <IsPrivate>
+              <CreateHikePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/join-hike"
+          element={
+            <IsPrivate>
+              <JoinHikePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/routes/:routeId"
+          element={
+            <IsPrivate>
+              <RouteIdPage />
+            </IsPrivate>
+          }
+        />
+
+        
+
+       
+        
       </Routes>
 
       <Footer />
