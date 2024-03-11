@@ -49,7 +49,7 @@ function Calendar() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/days") //* TO-DO: FIND THE RIGHT ENDPOINT
+      .get("http://localhost:5005/api/days") //* TO-DO: FIND THE RIGHT ENDPOINT
       .then((response) => {
         setDayHikesArray([...response.data]);
         //* TO-DO: get number of hikes for each day in the month

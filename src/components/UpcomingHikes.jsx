@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HikeListCard from "./HikeListCard";
 import axios from "axios";
 
 function UpcomingHikes() {
@@ -11,7 +12,10 @@ function UpcomingHikes() {
     return(
        <div id="container-upcoming-hikes">
         <h2>Upcoming Hikes</h2>
-       </div> 
+        <div id='upcoming-hike-list'>
+        <HikeListCard></HikeListCard>
+        </div>
+       </div>
     )
 }
 
