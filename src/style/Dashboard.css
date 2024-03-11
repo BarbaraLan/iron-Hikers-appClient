@@ -1,0 +1,11 @@
+.JoinHike, .CreateHike, h6{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    padding: 50px;
+    color: #303030;
+    background-color: rgb(254, 251, 231);
+}
