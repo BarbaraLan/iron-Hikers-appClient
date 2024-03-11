@@ -4,7 +4,7 @@ import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005/API";
+const API_URL = "http://localhost:5005/api";
 
 function CreateHikePage() {
   const navigate = useNavigate()
@@ -49,7 +49,7 @@ function CreateHikePage() {
     }
 
     if (route === "") {
-      window.alert("Please enter a route length");
+      window.alert("Please enter a route");
       return;
     }
 
@@ -63,7 +63,7 @@ function CreateHikePage() {
     }
 
     axios
-      .post(`${API_URL}/api/hikes/create`, newHike)
+      .post(`${API_URL}/hikes/create`, newHike)
       .then((response) => {
         console.log(response)
         navigate(`/hikes/${response.data._id}`)
