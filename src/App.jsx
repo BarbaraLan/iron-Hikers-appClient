@@ -30,11 +30,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/About" element={<AboutPage />} />
-          
+
         <Route path='/login' element={<LogInPage />} />
         <Route path='/signup' element={<SignUpPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-          
         
         <Route path='/routes' element={<RoutesPage />} />
         <Route path='/routes/create' element={<CreateRoutePage />} />
@@ -43,58 +41,21 @@ function App() {
        {/*  <Route path="/join-hike" element={<JoinHikePage />}/>
         <Route path='/hikes/create' element={<CreateHikePage />} /> */}
         <Route path='/hikes/:hikeId' element={<HikeIdPage />} /> 
+        <Route path="/dashboard" element={<IsPrivate><DashboardPage /></IsPrivate>} />
 
-        <Route path="/routes" element={<RoutesPage />} />
+        <Route path='/routes' element={<RoutesPage />} />
+        <Route path='/routes/create' element={<IsPrivate> <CreateRoutePage /> </IsPrivate>} />
+        <Route path='/routes/:routeId' element={<IsPrivate> <RouteIdPage /> </IsPrivate>} />
 
-        <Route path="/day/:date" element={<DayHikesPage />}/>
-        
+        <Route path="/day/:date" element={<IsPrivate> <DayHikesPage /></IsPrivate>} />
         <Route path='/user' element={<UserPage />} />
-        {/* <Route path='/city' element={<CityPage />} /> */}
-
-
-
-        <Route
-          path="/city"
-          element={
-            <IsPrivate>
-              <CityPage />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/hikes/create"
-          element={
-            <IsPrivate>
-              <CreateHikePage />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/join-hike"
-          element={
-            <IsPrivate>
-              <JoinHikePage />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/routes/:routeId"
-          element={
-            <IsPrivate>
-              <RouteIdPage />
-            </IsPrivate>
-          }
-        />
-
+        <Route path="/city" element={<IsPrivate> <CityPage /> </IsPrivate>} />
         
-
+        <Route path="/hikes/create" element={<IsPrivate> <CreateHikePage /> </IsPrivate>} />
+        <Route path="/join-hike" element={<IsPrivate> <JoinHikePage /> </IsPrivate>} />
+        <Route path='/hikes/:hikeId' element={ <IsPrivate> <HikeIdPage /> </IsPrivate>} /> 
        
-        
       </Routes>
-
       <Footer />
     </>
   );

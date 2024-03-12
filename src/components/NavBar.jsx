@@ -13,16 +13,17 @@ function NavBar() {
 
     return (
         <nav className="navBar">
-            <Link className='homeLink' to='/'> Home </Link>
 
             {isLoggedIn ? (
                 
                 <>
-                    <Link className='userPageLink' to='/user'> User Page </Link>
+                    <Link className='dashLink' to='/dashboard'> Home </Link>
                     <Link className='cityLink' to='/city'> City </Link>
-                    <Link className='dashLink' to='/dashboard'> Dash </Link>
+                    <Link className='userPageLink' to='/user'> User Page </Link>
                 </>
-            ) : (
+            ) : 
+            
+            (
                 
                 <>
                     <Link className='logInLink' to='/login'> Log In </Link>

@@ -1,0 +1,32 @@
+.card-img{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 40%;
+    height: 200px;
+    padding: 20px;
+}
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    color: #303030;
+    width: 40%;
+}
+
+.card-city, .card-length, .card-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    color: #303030;
+    width: 40%;
+}
