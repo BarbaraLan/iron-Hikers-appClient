@@ -65,7 +65,7 @@ function CreateHikePage() {
     axios
       .post(`${API_URL}/hikes/create`, newHike)
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         navigate(`/hikes/${response.data._id}`)
 
         setName("");
@@ -86,7 +86,7 @@ function CreateHikePage() {
     axios
       .delete(`${API_URL}/api/hikes/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         getAllHikes()
       })
       .catch((error) => console.log(error));

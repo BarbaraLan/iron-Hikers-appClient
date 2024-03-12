@@ -33,6 +33,14 @@ function App() {
 
         <Route path='/login' element={<LogInPage />} />
         <Route path='/signup' element={<SignUpPage />} />
+        
+        <Route path='/routes' element={<RoutesPage />} />
+        <Route path='/routes/create' element={<CreateRoutePage />} />
+        <Route path='/routes/:routeId' element={<RouteIdPage />} />
+          
+       {/*  <Route path="/join-hike" element={<JoinHikePage />}/>
+        <Route path='/hikes/create' element={<CreateHikePage />} /> */}
+        <Route path='/hikes/:hikeId' element={<HikeIdPage />} /> 
         <Route path="/dashboard" element={<IsPrivate><DashboardPage /></IsPrivate>} />
 
         <Route path='/routes' element={<RoutesPage />} />

@@ -18,7 +18,7 @@ function DayHikesPage() {
         .then((response)=>{
             setDayHikes(response.data);
             setHikesLoaded(true);
-            console.log(response.data);
+            // console.log(response.data);
         })
         .catch((error)=>{
             setHikesLoaded(false);
