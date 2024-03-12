@@ -2,6 +2,7 @@
 import './style/App.css'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+
 import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
 import SignUpPage from './pages/SignUpPage'
