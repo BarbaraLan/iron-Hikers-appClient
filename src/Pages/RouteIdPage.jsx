@@ -12,7 +12,7 @@ function RouteIdPage(props) {
     };
     
     const routId = useParams().routeId
-    console.log(routId)
+    // console.log(routId)
     const { name, city, length, duration, intensity, type, description, map, routeComments, addedBy,  image, ratings } = existingRoute;
 
     const routeIdCall = () => {

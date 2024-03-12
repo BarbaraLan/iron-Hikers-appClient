@@ -13,7 +13,10 @@ function Calendar() {
   const [firstDay, setFirstDay] = useState(new Date(year, month, 0).getDay());
 
   const [dayHikesArray, setDayHikesArray] = useState([]);
+  const [yearAndMonth, setYearAndMonth]=useState(`${year}-${String(month + 1).padStart(2, "0")}`)
   const blanksArray = [];
+
+  let dayHasHikes = false;
 
   for (let i = 0; i <= firstDay; i++) {
     blanksArray.push("");
@@ -39,22 +42,27 @@ function Calendar() {
   };
 
   const checkHikeData = (day) => {
-    const dayHikes = dayHikesArray.find((element) => (element.date = day));
+    const dayHikes = dayHikesArray.find((element) => (element.date === day));
     if (dayHikes) {
-      if (dayHikes) {
-        // DO STUFF FOR DAYS THAT HAVE HIKES SCHEDULED
-      }
+      dayHasHikes = true;
+      return true;
+    } else {
+      dayHasHikes = false;
+      return false;
     }
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/api/days") //* TO-DO: FIND THE RIGHT ENDPOINT
+      .get(`http://localhost:5005/api/day/${yearAndMonth}`) //* TO-DO: FIND THE RIGHT ENDPOINT
       .then((response) => {
         setDayHikesArray([...response.data]);
         //* TO-DO: get number of hikes for each day in the month
       })
       .catch((error) => error);
+
+      console.log(yearAndMonth)
+      console.log(dayHikesArray)
   }, []);
 
   return (
@@ -86,10 +94,11 @@ function Calendar() {
         {days.map((day) => (
           //* TO-DO: Update this so that only days with hikes scheduled in them have links
           <Link key={day} to={`/day/${formatDate(day)}`}>
-          {/* //*TO-DO: Make sure the current day is highlighted */
-          }
           <div className={(formatDate((day))===(formatDate(today.getDate()))? "day day-current" : "day")}>
+           <div className={checkHikeData(formatDate(day))? "day-has-hikes" : "day-no-hikes"}>
             {day}
+            </div> 
+          
           </div>
           </Link>
         ))}

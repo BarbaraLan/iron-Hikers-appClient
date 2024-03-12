@@ -31,6 +31,11 @@
     .day-current {
       border: 5px solid #2cf
     }
+
+    .day-has-hikes {
+      border: 5px solid fuchsia;
+      border-radius: 50%
+    }
     
     .day div {
         background-color: transparent;

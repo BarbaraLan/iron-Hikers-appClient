@@ -23,7 +23,7 @@ function UserPage() {
     const [description, setDescription] = useState("");
     const [img, setImg] = useState("");
     const [showImgInput, setShowImgInput] = useState(false);
-    console.log(userInfo);
+    // console.log(userInfo);
 
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [successMessage, setSuccessMessage] = useState(undefined);
@@ -37,13 +37,13 @@ function UserPage() {
             description: description,
             img: ""
         };
-        console.log(userData);
+        // console.log(userData);
 
         axios
             .put(`${API_URL}`, userData)
             .then((response) => {
                 response.data
-                console.log(response.data)
+                // console.log(response.data)
                 const successDescription = "Your data has been saved!"
                 setSuccessMessage(successDescription);
                 setErrorMessage(undefined);
