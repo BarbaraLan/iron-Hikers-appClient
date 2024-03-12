@@ -41,8 +41,8 @@ function App() {
         <Route path='/routes/:routeId' element={<RouteIdPage />} />
           
        {/*  <Route path="/join-hike" element={<JoinHikePage />}/>
-        <Route path='/hikes/create' element={<CreateHikePage />} />
-        <Route path='/hikes/:hikeId' element={<HikeIdPage />} /> */}
+        <Route path='/hikes/create' element={<CreateHikePage />} /> */}
+        <Route path='/hikes/:hikeId' element={<HikeIdPage />} /> 
 
         <Route path="/routes" element={<RoutesPage />} />
 

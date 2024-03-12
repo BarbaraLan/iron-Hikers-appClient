@@ -33,8 +33,7 @@
     }
 
     .day-has-hikes {
-      border: 5px solid fuchsia;
-      border-radius: 50%
+      background-color: fuchsia
     }
     
     .day div {
