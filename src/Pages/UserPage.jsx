@@ -14,7 +14,7 @@ function UserPage() {
     const { userInfo, logoutUser } = useContext(AuthContext);
     const [data, setData] = useState(false);
 
-    const [userId, setUserId] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [selectedCity, setSelectedCity] = useState(""); 
 
@@ -35,7 +35,6 @@ function UserPage() {
         event.preventDefault()
         const userData = {
             userId: userInfo._id,
-            email: email,
             age: age,
             hobbies: hobbies,
             likes: likes,
@@ -67,13 +66,14 @@ function UserPage() {
             axios
                 .get(`http://localhost:5005/api/user/${userInfo._id}`)
                 .then((response) => {
-                    setUserId(response.data.userId || "");
+                 
+                    setName(response.data.name || "");
                     setEmail(response.data.email || "");
                     setAge(response.data.age || "");
                     setHobbies(response.data.hobbies || "");
                     setLikes(response.data.likes || "");
                     setDescription(response.data.description || "");
-                    setSelectedCity(response.data.selectedCity || "");
+                    setSelectedCity(response.data.city || "");
                     setData(true);
                 })
                 .catch((error) => error)
@@ -100,7 +100,7 @@ function UserPage() {
             {data && (
                 <div className="data">
                     <h2>User Profile</h2>
-                    <div>Username: {userInfo._id}</div>
+                    <div>Username: {name}</div>
                     <div>Email: {email}</div>
                     <div>Age: {age}</div>
                     <div>Hobbies: {hobbies}</div>
