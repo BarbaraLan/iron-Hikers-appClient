@@ -12,3 +12,7 @@
 .dashLink:hover , .routes:hover , .userPageLink:hover , .logInLink:hover { 
 padding: 5px;
 }
+
+.userPic {
+    height: 25px;
+}

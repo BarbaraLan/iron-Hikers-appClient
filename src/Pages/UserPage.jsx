@@ -92,26 +92,22 @@ function UserPage() {
 
 
     return (
-
-
-
-        <div>
-
+        <div className='user-page-general'>
             {data && (
                 <div className="data">
                     <h2>User Profile</h2>
-                    <div>Username: {userInfo._id}</div>
-                    <div>Email: {email}</div>
-                    <div>Age: {age}</div>
-                    <div>Hobbies: {hobbies}</div>
-                    <div>Likes: {likes}</div>
-                    <div>Additional Info.: {description}</div>
-                    <div>Selected City: {selectedCity}</div>
+                    <p>Username: {userInfo._id}</p>
+                    <p>Email: {email}</p>
+                    <p>Age: {age}</p>
+                    <p>Hobbies: {hobbies}</p>
+                    <p>Likes: {likes}</p>
+                    <p>Additional Info.: {description}</p>
+                    <p>Selected City: {selectedCity}</p>
                 </div>
             )}
 
 
-            <button id="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
+            <button className="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
 
             {showForm && (
                 <form className="form">
@@ -150,12 +146,12 @@ function UserPage() {
                     >
                     </textarea>
 
-                    <button onClick={handleSubmission}>Store my data</button>
+                    <button className= 'storeData' onClick={handleSubmission}>Store my data</button>
 
                 </form>)}
 
 
-            <button onClick={handleLogout}>Log Out</button>
+            <button className= 'log-out' onClick={handleLogout}>Log Out</button>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}
