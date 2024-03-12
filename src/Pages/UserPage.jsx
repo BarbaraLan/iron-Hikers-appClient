@@ -11,9 +11,7 @@ const API_URL = "http://localhost:5005/api/user/update";
 
 function UserPage() {
 
-    
-
-    const { userInfo } = useContext(AuthContext);
+    const { userInfo, logoutUser } = useContext(AuthContext);
     const [data, setData] = useState(false);
 
     const [name, setName] = useState("");
@@ -23,10 +21,11 @@ function UserPage() {
     const [description, setDescription] = useState("");
     const [img, setImg] = useState("");
     const [showImgInput, setShowImgInput] = useState(false);
-    console.log(userInfo);
 
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [successMessage, setSuccessMessage] = useState(undefined);
+
+    const navigate = useNavigate();
 
     function handleSubmission() {
         const userData = {
@@ -43,7 +42,6 @@ function UserPage() {
             .put(`${API_URL}`, userData)
             .then((response) => {
                 response.data
-                console.log(response.data)
                 const successDescription = "Your data has been saved!"
                 setSuccessMessage(successDescription);
                 setErrorMessage(undefined);
@@ -53,10 +51,6 @@ function UserPage() {
                 setErrorMessage(errorDescription);
                 setSuccessMessage(undefined);
             });
-
-
-
-
     }
 
     function toggleGetData() {
@@ -86,24 +80,14 @@ function UserPage() {
             reader.readAsDataURL(file);
         }
 
-
-
-        const handleLogout = () => {
-
-
-            const navigate = useNavigate();
-
-
-            logoutUser();
-            navigate('/');
-
-        };
     };
 
+    const handleLogout = () => {
+        logoutUser();
+        navigate('/');
+        };
+
     return (
-
-
-
 
         <div>
 
@@ -117,7 +101,6 @@ function UserPage() {
                     {img && <div> <img src={img} alt="User" style={{ maxWidth: '100px', maxHeight: '100px' }} /></div>}
                 </div>
             )}
-
 
 
             <label htmlFor="age">Age</label>
@@ -150,18 +133,15 @@ function UserPage() {
                 placeholder="Describe yourself"
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
-            ></textarea>
+            >
+            </textarea>
+
             <button type="button" onClick={() => setShowImgInput(!showImgInput)}>Select Image</button>
-
             <button onClick={handleSubmission}>Store my data</button>
+            <button onClick={handleLogout}>Log Out</button>
             
-
-
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}
-
-
-
         </div>
 
     );
