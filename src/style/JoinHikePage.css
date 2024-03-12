@@ -1,12 +1,12 @@
-#container-dashboard{
+#container-dashboard {
     background-image: url("../assets/mountain.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 95vh;
+    overflow-y: scroll;
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-
