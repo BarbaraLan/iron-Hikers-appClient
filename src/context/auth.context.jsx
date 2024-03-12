@@ -21,7 +21,7 @@ function AuthProviderWrapper(props) {
                 )
                 .then((response) => { // ticket accepted
                     const user = response.data;
-                    console.log(user);
+                    // console.log(user);
                     setIsLoggedIn(true); 
                     setIsLoading(false);
                     setUserInfo(user);

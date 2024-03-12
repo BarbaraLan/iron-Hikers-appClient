@@ -8,7 +8,7 @@ function NavBar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
 
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
 
 
     return (

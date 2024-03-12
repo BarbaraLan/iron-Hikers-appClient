@@ -34,12 +34,13 @@ function UserPage() {
             likes: likes,
             description: description,
         };
-        console.log(userData);
+        // console.log(userData);
 
         axios
             .put(`${API_URL}`, userData)
             .then((response) => {
                 response.data
+
                 const successDescription = "Your data has been saved!"
                 setSuccessMessage(successDescription);
                 setErrorMessage(undefined);

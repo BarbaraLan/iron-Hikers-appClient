@@ -8,12 +8,17 @@ function Calendar() {
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
   const [monthDays, setMonthDays] = useState(
-    new Date(year, month+1, 0).getDate()
+    new Date(year, month + 1, 0).getDate()
   );
   const [firstDay, setFirstDay] = useState(new Date(year, month, 0).getDay());
 
   const [dayHikesArray, setDayHikesArray] = useState([]);
+  const [yearAndMonth, setYearAndMonth] = useState(
+    `${year}-${String(month + 1).padStart(2, "0")}`
+  );
   const blanksArray = [];
+
+  let dayHasHikes = false;
 
   for (let i = 0; i <= firstDay; i++) {
     blanksArray.push("");
@@ -39,19 +44,32 @@ function Calendar() {
   };
 
   const checkHikeData = (day) => {
-    const dayHikes = dayHikesArray.find((element) => (element.date = day));
+    const dayHikes = dayHikesArray.find((element) => element.date === day);
     if (dayHikes) {
-      if (dayHikes) {
-        // DO STUFF FOR DAYS THAT HAVE HIKES SCHEDULED
-      }
+      dayHasHikes = true;
+      return true;
+    } else {
+      dayHasHikes = false;
+      return false;
     }
   };
 
+  const getDayClasses = (day) => {
+    let dayClasses = "day";
+    const dayDate = formatDate(day);
+    const todayDate = formatDate(today.getDate());
+
+    dayDate === todayDate ? (dayClasses += " day-current") : null;
+
+    checkHikeData(formatDate(day)) ? (dayClasses += " day-has-hikes") : null;
+    return dayClasses;
+  };
   useEffect(() => {
     axios
-      .get("http://localhost:5005/api/days") //* TO-DO: FIND THE RIGHT ENDPOINT
+      .get(`http://localhost:5005/api/day/${yearAndMonth}`) //* TO-DO: FIND THE RIGHT ENDPOINT
       .then((response) => {
         setDayHikesArray([...response.data]);
+        console.log(dayHikesArray);
         //* TO-DO: get number of hikes for each day in the month
       })
       .catch((error) => error);
@@ -84,14 +102,34 @@ function Calendar() {
 
         {/* DAY CELLS */}
         {days.map((day) => (
-          //* TO-DO: Update this so that only days with hikes scheduled in them have links
-          <Link key={day} to={`/day/${formatDate(day)}`}>
-          {/* //*TO-DO: Make sure the current day is highlighted */
-          }
-          <div className={(formatDate((day))===(formatDate(today.getDate()))? "day day-current" : "day")}>
-            {day}
-          </div>
-          </Link>
+          <>
+            {checkHikeData(formatDate(day)) ? (
+              <Link to={`/day/${formatDate(day)}`}>
+                <div key={day} className={getDayClasses(day)}>
+                  {day}
+                </div>
+              </Link>
+            ) : (
+              <div
+                key={day}
+                className={
+                  formatDate(day) === formatDate(today.getDate())
+                    ? "day day-current"
+                    : "day"
+                }
+              >
+                <div
+                  className={
+                    checkHikeData(formatDate(day))
+                      ? "day-has-hikes"
+                      : "day-no-hikes"
+                  }
+                >
+                  {day}
+                </div>
+              </div>
+            )}
+          </>
         ))}
       </div>
     </>
