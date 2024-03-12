@@ -76,7 +76,8 @@ function Calendar() {
   }, []);
 
   return (
-    <>
+   <>
+
       {/* CALENDAR HEADER - Prev Month - Month/Year - Next Month */}
       <div id="month-bar">
         <button onClick={() => changeMonth("minus")}>Prev</button>
@@ -132,7 +133,7 @@ function Calendar() {
           </>
         ))}
       </div>
-    </>
+      </>
   );
 }
 

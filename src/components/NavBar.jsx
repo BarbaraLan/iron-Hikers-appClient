@@ -18,7 +18,8 @@ function NavBar() {
                 
                 <>
                     <Link className='dashLink' to='/dashboard'> Home </Link>
-                    <Link className='cityLink' to='/city'> City </Link>
+                    <Link className='dashLink' to='/city'> City </Link>
+                    <Link className='routes' to='/routes'> Routes </Link>
                     <Link className='userPageLink' to='/user'> User Page </Link>
                 </>
             ) : 
@@ -26,8 +27,9 @@ function NavBar() {
             (
                 
                 <>
-                    <Link className='logInLink' to='/login'> Log In </Link>
+                    <Link className='dashLink' to='/'> Home </Link>
                     <Link className='routes' to='/routes'> Routes </Link>
+                    <Link className='logInLink' to='/login'> Log In </Link>
 
                 </>
             )}
