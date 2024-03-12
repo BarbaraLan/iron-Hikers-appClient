@@ -8,6 +8,9 @@ function JoinHikePage() {
     const [today, setToday] = useState(new Date());
     const [month, setMonth] = useState(today.getMonth());
     const [year, setYear] = useState(today.getFullYear());
+    const [yearAndMonth, setYearAndMonth] = useState(
+        `${year}-${String(month + 1).padStart(2, "0")}`
+      );
 
     const formatDate = (day) => {
         return `${year}-${String(month + 1).padStart(2, "0")}-${String(

@@ -24,19 +24,30 @@ function Calendar(props) {
   }
 
   const changeMonth = (action) => {
+    let newYear = year;
     let newMonth = action === "minus" ? month - 1 : month + 1;
+    if (newMonth < 0) {
+      newMonth = 11;
+      newYear = year -1;
+      setYear(newYear);
+    } else if (newMonth > 11) {
+      newMonth = 0;
+      newYear = year +1;
+      setYear(newYear);
+    }
+      
     setMonth(newMonth);
-    setToday(new Date(year, newMonth));
-    setMonthDays(new Date(year, newMonth + 1, 0).getDate());
-    setFirstDay(new Date(year, newMonth, 0).getDay());
+    //setToday(new Date(newYear, newMonth));
+    setMonthDays(new Date(newYear, newMonth + 1, 0).getDate());
+    setFirstDay(new Date(newYear, newMonth, 0).getDay());
+    setYearAndMonth(`${newYear}-${String(newMonth + 1).padStart(2, "0")}`)
+    console.log(newMonth, newYear, yearAndMonth);
   };
 
   let days = [];
   for (let i = 0; i < monthDays; i++) {
     days.push(i + 1);
   }
-
-  
 
   const checkHikeData = (day) => {
     const dayHikes = dayHikesArray.find((element) => element.date === day);
@@ -59,15 +70,25 @@ function Calendar(props) {
     checkHikeData(formatDate(day)) ? (dayClasses += " day-has-hikes") : null;
     return dayClasses;
   };
-  useEffect(() => {
+
+  const getMonthHikeData = (yearAndMonth) =>{
     axios
-      .get(`http://localhost:5005/api/day/${yearAndMonth}`)
-      .then((response) => {
-        setDayHikesArray([...response.data]);
-        //console.log(dayHikesArray);
-      })
-      .catch((error) => error);
-  }, []);
+    .get(`http://localhost:5005/api/day/${yearAndMonth}`)
+    .then((response) => {
+      setDayHikesArray([...response.data]);
+      //console.log(dayHikesArray);
+    })
+    .catch((error) => error);
+  }
+
+  const monthName = (mon)=> {
+    return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][mon];
+ }
+ 
+
+  useEffect(() => {
+    getMonthHikeData(yearAndMonth);
+  }, [month]);
 
   return (
    <>
@@ -75,8 +96,8 @@ function Calendar(props) {
       {/* CALENDAR HEADER - Prev Month - Month/Year - Next Month */}
       <div id="month-bar">
         <button onClick={() => changeMonth("minus")}>Prev</button>
-        <h2>{today.toLocaleString("en-EN", { month: "long" })}</h2>
-        <h2>{today.getFullYear()}</h2>
+        <h2>{monthName(month)}</h2>
+        <h2>{year}</h2>
         <button onClick={() => changeMonth("plus")}>Next</button>
       </div>
 

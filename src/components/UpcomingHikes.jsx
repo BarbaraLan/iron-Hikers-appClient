@@ -11,7 +11,7 @@ function UpcomingHikes(props) {
     const todayDate = formatDate(today.getDate())
 
     useEffect(() => {
-        console.log(yearMonth, todayDate)
+        // console.log(yearMonth, todayDate)
         axios
         .get(`http://localhost:5005/api/hikes/upcoming/${todayDate}`)
         .then((response) => {
