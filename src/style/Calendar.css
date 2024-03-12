@@ -11,10 +11,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
     overflow-x: auto;
-    padding: 10px;
-    border: 1px solid #d0d0d0;
+    border: 1px solid rgb(254, 251, 231);
     background-color: #fff;
     width: 460px;
+    font-family: "Bebas Neue", sans-serif;
   }
   
   .day {
@@ -22,7 +22,6 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      background-color: #f0f0f0;
       border: 1px solid #d0d0d0;
       text-decoration: none;
       color: #5b5c38;
@@ -30,11 +29,11 @@
     }
 
     .day-current {
-      border: 5px solid #2cf
+      border: 5px solid #869BA6
     }
 
     .day-has-hikes {
-      background-color: fuchsia
+      background-color: rgb(254, 251, 231)
     }
     
     .day div {
@@ -44,12 +43,12 @@
     #month-bar {
         display: flex;
         justify-content: space-around;
-        padding: 0 ;
         max-width: 700px;
         width: 460px;
         align-items: center;
         gap: 20px;
         height: 10vh;
+        padding-top: 20px;
     }
     
   #month-bar button {
@@ -66,7 +65,6 @@
   #month-bar h2 {
     height: 100%;
     padding: 0px;
-    color: black;
   }
   
   .weekday {

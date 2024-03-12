@@ -3,12 +3,16 @@ import '../style/Dashboard.css'
 
 function DashboardPage () {
     return (
-        <>
-        <h6> You are going to this Hikes:  </h6>
-        <hr />
+        <div className='completeDash'>
+            <h2> Welcome!
+            <br></br>
+            You can go on these Hikes:  </h2>
+        
+        <div className='dash-box'>
         <Link className='JoinHike' to='/join-hike'> Join Hike </Link>
         <Link className='CreateHike' to='/hikes/create'> Create new Hike </Link>
-        </>
+        </div>
+        </div>
     )
 }
 export default DashboardPage

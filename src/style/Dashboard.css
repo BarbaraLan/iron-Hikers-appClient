@@ -1,11 +1,31 @@
-.JoinHike, .CreateHike, h6{
+.completeDash{
+    background-image: url("../assets/familyHiking.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+.dash-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 70px;
+    padding: 70px;
+}
+
+.JoinHike,
+.CreateHike {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 30px;
-    padding: 50px;
+    font-size: 20px;
+    padding: 50px 100px;
     color: #303030;
     background-color: rgb(254, 251, 231);
+    border-radius: 20px;
+    width: 70vw;
 }

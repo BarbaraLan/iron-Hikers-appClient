@@ -93,10 +93,10 @@ function CreateHikePage() {
   }
 
   return (
-    <>
+    <div className="createHike-box">
+      <h2>Add your Hike</h2>
       <div className="createhike-container">
         <form className="createhike-formcontainer" onSubmit={handleSubmit}>
-          <h6>Add your Hike</h6>
 
           <label >
             Hike Name
@@ -123,11 +123,11 @@ function CreateHikePage() {
 
           <label>
             Description
-            <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription" cols="20" rows="5"></textarea>
+            <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription"></textarea>
           </label>
 
-          <div className="newbutton-div">
-            <button onClick={handleSubmit} className='newbutton' type="submit">Add New Hike</button>
+          <div>
+            <button className='btn-addHike' onClick={handleSubmit} type="submit">Add New Hike</button>
           </div>
 
           <div>
@@ -140,13 +140,12 @@ function CreateHikePage() {
             <div className="allhikes-section" key={hike._id} >
               <h3>{hike.name}</h3>
               <button className="delete-button" onClick={() => handleDelete(hike._id)}>Delete</button>
-
             </div>
           );
         })}
 
       </div>
-    </>
+      </div>
   )
 };
 
