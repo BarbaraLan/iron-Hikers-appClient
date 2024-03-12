@@ -15,7 +15,7 @@ function AuthProviderWrapper(props) {
     const authenticateUser = () => {   //machine to check ticket
         const storedToken = localStorage.getItem('authToken'); // human checking pocket for ticket
         if (storedToken) { //if I have the the ticket
-            axios
+           return axios
                 .get(`${API_URL}/auth/verify`, // putting the ticket inside the machine
                     { headers: { Authorization: `Bearer ${storedToken}` } } // machine reading the ticket
                 )

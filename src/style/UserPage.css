@@ -29,6 +29,8 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: auto;
+    display: flex;
 }
 
 button:hover {
@@ -47,3 +49,9 @@ button:hover {
     margin: 5px 0;
 }
 
+.form {
+    max-height: 200px;
+    overflow-y: auto;
+    width: 400px;
+    border: 1px solid #ccc;
+}
