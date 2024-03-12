@@ -6,11 +6,11 @@ function RoutesListCard(props) {
 
     return (
             <div>
-                <img src={image} alt="" />
-                <h6> {name} </h6>
-                <p> {city}</p>
-                <p> {length}</p>
-                <p> {ratings}</p>
+                <img className= 'card-img' src={image} alt="" />
+                <h7 className='card-title'> {name} </h7>
+                <p className='card-city'> {city}</p>
+                <p className='card-length'> {length}</p>
+                <p className='card-rating'> {ratings}</p>
             </div>
     )
 }
