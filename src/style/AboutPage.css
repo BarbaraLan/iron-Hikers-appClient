@@ -2,8 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(254, 251, 231);
-    height: 300px;
+    height: 80vh;
     width: 100%;
 }
 
@@ -13,9 +12,7 @@ h4{
     justify-content: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 40px;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: rgb(254, 251, 231);
+    padding-top: 20px;
     color: #303030;
 }
 
@@ -48,7 +45,5 @@ h5{
     align-items: center;
     justify-content: center;
     width: 100%;
-    border-radius: 10%;
-    padding: 30px;
-    background-color: rgb(254, 251, 231);
+    padding: 30px 0px;
 }
