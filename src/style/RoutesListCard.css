@@ -1,32 +1,39 @@
-.card-img{
+.routes-list {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 40%;
-    height: 200px;
+    justify-content: space-around;
     padding: 20px;
+    border: 1px solid rgb(254, 251, 231);
+    border-radius:35px;
+    margin: 30px;
+    text-wrap: wrap;
 }
 
-.card-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 30px;
-    color: #303030;
-    width: 40%;
+.card-img{
+    height: 200px;
+    width: 200px;
 }
 
-.card-city, .card-length, .card-rating {
+h9{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
-    color: #303030;
-    width: 40%;
+    color: rgb(254, 251, 231);
+}
+.card-title{
+    width: 25%;
+}
+
+.routes-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 15px;
+    color: rgb(254, 251, 231);
 }

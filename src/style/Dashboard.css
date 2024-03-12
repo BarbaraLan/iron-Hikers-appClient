@@ -1,8 +1,9 @@
-.completeDash {
+.completeDash{
     background-image: url("../assets/familyHiking.avif");
     background-repeat: no-repeat;
     background-size: cover;
     height: 85vh;
+    overflow-y: scroll;
 }
 
 .dash-box {

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from "../context/auth.context";
 import { useParams } from 'react-router-dom';
+import '../style/HikeIdPage.css'
 
 function HikeIdPage(props) {
 
@@ -11,9 +12,9 @@ function HikeIdPage(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
     };
-    
+
     const hikeId = useParams().hikeId
-    const { name, description, route, hikeComments, addedBy,  image} = existingRoute;
+    const { name, description, route, hikeComments, addedBy, image } = existingRoute;
 
     const hikeIdCall = () => {
         axios
@@ -27,10 +28,10 @@ function HikeIdPage(props) {
             })
     }
 
-    const handleJoin = (event)=>{
+    const handleJoin = (event) => {
         event.prevent.default;
         axios
-        .put(``)
+            .put(``)
     }
 
     useEffect(() => {
@@ -39,14 +40,18 @@ function HikeIdPage(props) {
 
 
     return (
-        <div>
-            <img src={image} alt="" />
-            <h6> {name} </h6> {/* DONE */}
-            <p> description {description}</p> {/* DONE */}
-            <p> route {route}</p>
-            <p> Created By:{addedBy}</p>
-            <p> comments: {hikeComments}</p>
-            <button  onClick={handleJoin}>JOIN</button>
+        <div className='hike-box'>
+            <div className='hikeImg'>
+                <img src={image} alt="" />
+            </div>
+            <h3> {name} </h3>
+            <div className='hikeInfoId'>
+                <p> description:  {description}</p>
+                <p> route {route}</p>
+                <p> Created By:{addedBy}</p>
+                <p> comments: {hikeComments}</p>
+            </div>
+            <button className='join-btn' onClick={handleJoin}>JOIN</button>
         </div>
     )
 }

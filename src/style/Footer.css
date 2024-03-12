@@ -1,5 +1,4 @@
 .footer {
-    position: absolute;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,5 +19,9 @@
 a:hover{
     color: rgb(254, 251, 231);
     background-color: #303030;
-    border-radius: 5px;
+    border-radius: 20px;
 }
+
+.aboutUs:hover, .git:hover{ 
+    padding: 5px;
+    }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HikeListCard from "./HikeListCard";
 import axios from "axios";
+import '../style/UpcomingHikes.css';
 
 function UpcomingHikes(props) {
     const {today, month, year, formatDate} = props;
@@ -22,7 +23,7 @@ function UpcomingHikes(props) {
 
     return(
        <div id="container-upcoming-hikes">
-        <h2>Upcoming Hikes</h2>
+        <h8>Upcoming Hikes</h8>
         <div id='upcoming-hike-list'>
         {upcomingHikes.map((hike) => (
                 <HikeListCard key={hike._id} hike={hike}></HikeListCard>

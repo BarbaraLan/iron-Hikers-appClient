@@ -1,5 +1,13 @@
+.routes-box{
+    background-image: url("../assets/userImg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+    overflow-y: scroll;
+}
 
 .create-route{
+    margin: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,6 +18,10 @@
     color: rgb(254, 251, 231);
     background-color: #303030;
     width: 170px;
-    border-radius: 40px;
 }
+
+.create-route:hover{
+    background-color:#5b5c38;
+}
+
 

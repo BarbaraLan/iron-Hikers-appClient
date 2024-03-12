@@ -52,8 +52,8 @@ function Routes() {
     };
 
     return (
-        <>
-            <h2> this is the Routes Page</h2>
+        <div className='routes-box'> 
+            <h8> Explore the routes</h8>
                 <Link className='create-route' to= '/routes/create'> Create New Route </Link>
             <div className="routes-container">
                 {existingRoutes? existingRoutes.map((route) => {
@@ -68,8 +68,7 @@ function Routes() {
                 : 'No Routes available'
                 }
             </div>
-
-        </>
+            </div>
     )
 }
 export default Routes;

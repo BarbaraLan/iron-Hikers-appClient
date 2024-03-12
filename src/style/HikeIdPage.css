@@ -1,0 +1,44 @@
+.hike-box{
+    background-image: url("../assets/climbing.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hikeInfoId{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    padding: 30px 0px;
+    color: #303030;
+    background-color: rgb(254, 251, 231);
+    border-radius: 20px;
+    width: 70vw;
+}
+
+.join-btn{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(254, 251, 231);
+    background-color: #303030;;
+    border-radius: 20px;
+    width: 70vw; 
+}
+
+.join-btn:hover {
+background-color: #5b5c38;
+}

@@ -1,0 +1,7 @@
+.hikes-background{
+    background-image: url("../assets/climbing.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+    overflow-y: scroll;
+}

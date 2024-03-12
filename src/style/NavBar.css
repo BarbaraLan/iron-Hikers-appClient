@@ -8,3 +8,7 @@
     width: 100%;
     height: 8vh;
 }
+
+.dashLink:hover , .routes:hover , .userPageLink:hover , .logInLink:hover { 
+padding: 5px;
+}
