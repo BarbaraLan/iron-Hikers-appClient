@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Calendar() {
-  const [today, setToday] = useState(new Date());
-  const [month, setMonth] = useState(today.getMonth());
-  const [year, setYear] = useState(today.getFullYear());
+function Calendar(props) {
+  const {today, setToday, month, setMonth, year, setYear, formatDate} = props;
+
   const [monthDays, setMonthDays] = useState(
     new Date(year, month + 1, 0).getDate()
   );
@@ -37,11 +36,7 @@ function Calendar() {
     days.push(i + 1);
   }
 
-  const formatDate = (day) => {
-    return `${year}-${String(month + 1).padStart(2, "0")}-${String(
-      day
-    ).padStart(2, "0")}`;
-  };
+  
 
   const checkHikeData = (day) => {
     const dayHikes = dayHikesArray.find((element) => element.date === day);
@@ -66,11 +61,10 @@ function Calendar() {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/day/${yearAndMonth}`) //* TO-DO: FIND THE RIGHT ENDPOINT
+      .get(`http://localhost:5005/api/day/${yearAndMonth}`)
       .then((response) => {
         setDayHikesArray([...response.data]);
-        console.log(dayHikesArray);
-        //* TO-DO: get number of hikes for each day in the month
+        //console.log(dayHikesArray);
       })
       .catch((error) => error);
   }, []);
