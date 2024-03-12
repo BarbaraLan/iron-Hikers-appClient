@@ -40,17 +40,17 @@ function SignUpPage() {
         <h2>Sign Up</h2>
         <label>
           Name
-          <input value={name} onChange={(event) => setName(event.target.value)} id="setName" type="text" />
+          <input value={name} onChange={(event) => setName(event.target.value)} type="text" />
         </label>
 
         <label>
           Email
-          <input value={email} onChange={(event) => setEmail(event.target.value)} id="setEmail" type="email" />
+          <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" />
         </label>
 
         <label>
           Password
-          <input value={password} onChange={(event) => setPassword(event.target.value)} id="setPassword" type="password" />
+          <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" />
         </label>
 
         <div className="signupbutton-div">

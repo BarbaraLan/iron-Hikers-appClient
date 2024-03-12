@@ -40,7 +40,7 @@ function App() {
         <Route path='/routes/:routeId' element={<IsPrivate> <RouteIdPage /> </IsPrivate>} />
 
         <Route path="/day/:date" element={<IsPrivate> <DayHikesPage /></IsPrivate>} />
-        <Route path='/user' element={<UserPage />} />
+        <Route path='/user' element={<IsPrivate> <UserPage /> </IsPrivate>} />
         <Route path="/city" element={<IsPrivate> <CityPage /> </IsPrivate>} />
         
         <Route path="/hikes/create" element={<IsPrivate> <CreateHikePage /> </IsPrivate>} />

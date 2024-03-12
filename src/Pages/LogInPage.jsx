@@ -28,9 +28,10 @@ function LogInPage() {
         setSuccessMessage(successDescription);
         setErrorMessage(undefined);
         storeToken(response.data.authToken);
-        authenticateUser();
-        navigate('/dashboard');
+
+        return authenticateUser();
       })
+      .then(() => { navigate('/dashboard') })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
