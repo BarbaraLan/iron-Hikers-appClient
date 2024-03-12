@@ -65,7 +65,7 @@ function Routes() {
                         </Link>
                     );
                 })
-                : 'Not Routes available'
+                : 'No Routes available'
                 }
             </div>
 

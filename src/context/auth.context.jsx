@@ -30,7 +30,7 @@ function AuthProviderWrapper(props) {
                 .catch((error) => { // ticket rejected
                     setIsLoggedIn(false);
                     setIsLoading(false);
-                    setUser(null);
+                    setUserInfo(null);
                 });     
                 
         }
