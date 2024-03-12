@@ -30,8 +30,9 @@ function DayHikesPage() {
         <h2>{date}</h2>
         {hikesLoaded && dayHikes.map((hike)=>{
             return(
-                <div key={hike._id}>{hike._id}
-                </div>
+                <HikeListCard key={hike._id} hike={hike}></HikeListCard>
+                // <div key={hike._id}>{hike._id}
+                // </div>
             )
         })}
         <div id='upcoming-hike-list'></div>

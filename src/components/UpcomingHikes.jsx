@@ -13,7 +13,7 @@ function UpcomingHikes() {
        <div id="container-upcoming-hikes">
         <h2>Upcoming Hikes</h2>
         <div id='upcoming-hike-list'>
-        <HikeListCard></HikeListCard>
+            {/*TO-DO: Conditional rendering of the first X hikes starting from today, or if no hikes have a "no upcoming hikes" message*/ }
         </div>
        </div>
     )
