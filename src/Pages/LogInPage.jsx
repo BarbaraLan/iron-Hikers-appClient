@@ -31,9 +31,9 @@ function LogInPage() {
 
         return authenticateUser();
       })
-      .then(() => { navigate('/dashboard') })
+     .then(() => { navigate('/dashboard') })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.response.data.errorMessage;
         setErrorMessage(errorDescription);
       });
   };
@@ -77,6 +77,7 @@ function LogInPage() {
 
           </div>
         </div>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </div>
   );

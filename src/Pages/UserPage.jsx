@@ -26,7 +26,8 @@ function UserPage() {
 
     const navigate = useNavigate();
 
-    function handleSubmission() {
+    function handleSubmission(event) {
+        event.preventDefault()
         const userData = {
             userId: userInfo._id,
             age: age,
@@ -102,7 +103,7 @@ function UserPage() {
             <button id="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
 
             {showForm && (
-                <form>
+                <form className="form">
 
 
                     <label htmlFor="age">Age</label>
