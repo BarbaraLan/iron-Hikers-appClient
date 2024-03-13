@@ -1,5 +1,5 @@
 import "../style/Calendar.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -118,10 +118,10 @@ function Calendar(props) {
 
         {/* DAY CELLS */}
         {days.map((day) => (
-          <>
+          <Fragment key={day}>
             {checkHikeData(formatDate(day)) ? (
               <Link to={`/day/${formatDate(day)}`}>
-                <div key={day} className={getDayClasses(day)}>
+                <div className={getDayClasses(day)}>
                   {day}
                 </div>
               </Link>
@@ -145,7 +145,7 @@ function Calendar(props) {
                 </div>
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
       </>
