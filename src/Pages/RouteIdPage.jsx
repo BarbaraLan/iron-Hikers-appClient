@@ -39,7 +39,7 @@ function RouteIdPage(props) {
 
             <div className='complete-id-info'>
                 <div className='title-back'>
-                <h8> {name} </h8>
+                <h3> {name} </h3>
                 </div>
 
                 <div className='route-id-info'>
