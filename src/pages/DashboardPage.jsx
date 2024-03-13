@@ -4,9 +4,7 @@ import '../style/Dashboard.css'
 function DashboardPage () {
     return (
         <div className='completeDash'>
-            <h2> Welcome!
-            <br></br>
-            You can go on these Hikes:  </h2>
+            <h2> Choose your own path </h2>
         
         <div className='dash-box'>
         <Link className='JoinHike' to='/join-hike'> Join Hike </Link>
