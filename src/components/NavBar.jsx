@@ -30,7 +30,6 @@ function NavBar() {
                 
                 <>
                     <Link className='dashLink' to='/'> Home </Link>
-                    <Link className='routes' to='/routes'> Routes </Link>
                     <Link className='logInLink' to='/login'> Log In </Link>
 
                 </>

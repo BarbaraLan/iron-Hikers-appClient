@@ -16,7 +16,7 @@ function UserPage() {
 
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
-    const [selectedCity, setSelectedCity] = useState(""); 
+    const [selectedCity, setSelectedCity] = useState("");
 
 
     const [age, setAge] = useState("");
@@ -61,8 +61,8 @@ function UserPage() {
 
     function getUserData() {
         console.log(`This is the ${userInfo}`);
-        
-        
+
+
         if (userInfo) {
             axios
                 .get(`http://localhost:5005/api/user/${userInfo._id}`)
@@ -111,47 +111,50 @@ function UserPage() {
 
             {showForm && (
                 <form className="form">
-
-
-                    <label htmlFor="age">Age</label>
-                    <input
-                        type="number"
-                        name="age"
-                        placeholder="Enter your age"
-                        onChange={(e) => setAge(e.target.value)}
-                        value={age}
-                    />
-                    <label htmlFor="hobbies">Hobbies</label>
-                    <input
-                        type="text"
-                        name="hobbies"
-                        placeholder="Type your hobbies"
-                        onChange={(e) => setHobbies(e.target.value)}
-                        value={hobbies}
-                    />
-                    <label htmlFor="likes">Likes</label>
-                    <input
-                        type="text"
-                        name="likes"
-                        placeholder="Type your likes"
-                        onChange={(e) => setLikes(e.target.value)}
-                        value={likes}
-                    />
-                    <label htmlFor="description">Additional Info.</label>
-                    <textarea
-                        name="description"
-                        placeholder="Describe yourself"
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description}
-                    >
-                    </textarea>
-
-                    <button className= 'storeData' onClick={handleSubmission}>Store my data</button>
+                    <div className='form-no-btn'>
+                        <label className='label3' htmlFor="age">Age
+                            <input
+                                type="number"
+                                name="age"
+                                placeholder="Enter your age"
+                                onChange={(e) => setAge(e.target.value)}
+                                value={age}
+                            />
+                        </label>
+                        <label className='label3' >Hobbies
+                            <input
+                                type="text"
+                                name="hobbies"
+                                placeholder="Type your hobbies"
+                                onChange={(e) => setHobbies(e.target.value)}
+                                value={hobbies}
+                            />
+                        </label>
+                        <label className='label3' >Likes
+                            <input
+                                type="text"
+                                name="likes"
+                                placeholder="Type your likes"
+                                onChange={(e) => setLikes(e.target.value)}
+                                value={likes}
+                            />
+                        </label>
+                        <label className='label3' >Additional Info
+                            <textarea
+                                name="description"
+                                placeholder="Describe yourself"
+                                onChange={(e) => setDescription(e.target.value)}
+                                value={description}
+                            >
+                            </textarea>
+                        </label>
+                    </div>
+                    <button className='storeData' onClick={handleSubmission}>Store my data</button>
 
                 </form>)}
 
 
-            <button className= 'log-out' onClick={handleLogout}>Log Out</button>
+            <button className='log-out' onClick={handleLogout}>Log Out</button>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}

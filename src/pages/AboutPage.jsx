@@ -8,22 +8,25 @@ function AboutPage() {
     return (
         <nav className='about-box'>
             <img className='groupPhoto' src={groupPhoto} alt="" />
-            <p className='about-us'>About Us</p>
+            <h6>About Us</h6>
             <div className='home3'>
 
-                <div className='barbiDiv'>
+                <div className='generalDiv'>
                     <img className='barbiPhoto' src={BarbiPhoto} alt="" />
-                    <h5> Barbara</h5>
+                    <h4> Barbara</h4>
+                    <p className='about-text'> tech lead / co-founder</p>
                 </div>
 
-                <div className='KumarDiv'>
+                <div className='generalDiv'>
                     <img className='kumPhoto' src={KumPhoto} alt="" />
-                    <h5> Kumar</h5>
+                    <h4> Kumar</h4>
+                    <p className='about-text'> ceo / co-founder</p>
                 </div>
 
-                <div className='GavinDiv'>
+                <div className='generalDiv'>
                     <img className='gavPhoto' src={GavPhoto} alt="" />
-                    <h5> Gavin </h5>
+                    <h4> Gavin </h4>
+                    <p className='about-text'> sales manager / co-founder</p>
                 </div >
 
             </div >
