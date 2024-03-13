@@ -57,7 +57,7 @@ function CityPage() {
     useEffect(() => {
 
         axios
-            .get(`http://localhost:5005/api/user/${userId}`)
+            .get(`${API_URL}/api/user/${userId}`)
             .then((response) => {
                 if(response.data.city){
                     setShowForm(false)
