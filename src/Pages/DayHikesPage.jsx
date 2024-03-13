@@ -15,7 +15,7 @@ function DayHikesPage() {
     useEffect(() => {
         //Axios call to populate page
         axios
-            .get(`${API_URL}/day/${date}`)
+            .get(`${API_URL}/api/day/${date}`)
             .then((response) => {
                 setDayHikes(response.data);
                 setHikesLoaded(true);

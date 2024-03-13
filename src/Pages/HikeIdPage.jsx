@@ -8,8 +8,6 @@ import '../style/HikeIdPage.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-
-
 function HikeIdPage(props) {
 
     const [existingRoute, setExistingRoute] = useState('');
@@ -17,9 +15,9 @@ function HikeIdPage(props) {
     const [attendees, setAttendees] = useState('');
 
     const hikeId = useParams().hikeId
-    const { name, description, route, hikeComments, addedBy, image } = existingRoute;
-    const {userInfo} = useContext(AuthContext);
-    const userId = userInfo._id
+    const { name, description, route, hikeComments, createdBy, image } = existingRoute;
+    const { userInfo } = useContext(AuthContext)
+    const userId = userInfo?._id
 
     const navigate = useNavigate();
 
@@ -29,11 +27,11 @@ function HikeIdPage(props) {
 
   
     const hikeIdCall = () => {
+        console.log("This is the hike id", hikeId);
         axios
             .get(`${API_URL}/api/hikes/${hikeId}`)
             .then((response) => {
                 setExistingRoute(response.data);
-                console.log(existingRoute);
             })
             .catch((error) => {
                 error
@@ -47,13 +45,13 @@ function HikeIdPage(props) {
         event.preventDefault();
         
         axios
-            .put(`${API_URL}/api/hikes/join/${hikeId}`, userId )
+            .put(`${API_URL}/api/hikes/join/${hikeId}`, {userId} )
             .then((response) => {
                 setHikesJoined(response.data);
                 
             })
             .catch((error) => {
-                console.error(error);
+                error;
             });
 
 
@@ -98,12 +96,17 @@ function HikeIdPage(props) {
             </div>
             <h3> {name} </h3>
             <div className='hikeInfoId'>
-                
                 <p> description:  {description}</p>
-                <p> route {route}</p>
-                <p> Created By:{addedBy}</p>
+                <p> route {route?.name}</p>
+                <p> Created By:{createdBy?.name}</p>
+                <p>Participants:</p>
+                {existingRoute.attendees?.map((user)=>{
+                    return (
+                        <div key={user._id}> {user.name} </div>
+                    )
+                })}
                 <p> comments: {hikeComments}</p>
-                <p> image placeholder:  {description}</p>
+                <img width={"300px"} src={route?.image} alt={name} /> 
             </div>
             <button className='join-btn' onClick={handleJoin}>JOIN</button>
         </div>

@@ -8,7 +8,7 @@ function DashboardPage () {
         
         <div className='dash-box'>
         <Link className='JoinHike' to='/join-hike'> Join Hike </Link>
-        <Link className='CreateHike' to='/hikes/create'> Create new Hike </Link>
+        <Link className='CreateHike' to='/hikes/create'> Create Hike </Link>
         </div>
         </div>
     )

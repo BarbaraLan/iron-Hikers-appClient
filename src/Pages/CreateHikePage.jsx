@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
@@ -8,18 +9,20 @@ const API_URL = import.meta.env.VITE_API_URL
 
 function CreateHikePage() {
   const navigate = useNavigate()
+  const { userInfo } = useContext(AuthContext);
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [route, setRoute] = useState("");
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
+  const [image, setImage] = useState("");
 
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [existingRoutes, setExistingRoutes] = useState([]);
   const [hikes, setHikes] = useState([]);
 
-  const newHike = { name, date, route, startTime, description };
+  const newHike = { name, date, route, startTime, description, image, userId: userInfo._id };
 
   const getAllRoutes = () => {
     axios
@@ -62,22 +65,28 @@ function CreateHikePage() {
       window.description = "Please enter a description";
     }
 
+    if (image === "") {
+      window.description = "Please enter an image";
+    }
+
     axios
-      .post(`${API_URL}/hikes/create`, newHike)
+      .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
         // console.log(response)
         navigate(`/hikes/${response.data._id}`)
 
+        return
         setName("");
         setDate("");
         setRoute("");
         setStartTime("");
         setDescription("");
+        setImage("");
         getAllHikes();
       })
 
       .catch((error) => {
-        const errorDescription = error.response.data.errorMessage;
+        const errorDescription = error.data.errorMessage;
         setErrorMessage(errorDescription)
       });
   };
@@ -96,36 +105,42 @@ function CreateHikePage() {
     <div className="createHike-box">
       <h2>Add your Hike</h2>
       <div className="createhike-container">
-        <form  onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="createhike-formcontainer">
 
-          <label className="label3">
-            Hike Name
-            <input value={name} onChange={(event) => { setName(event.target.value) }} id="setName" type="text" />
-          </label>
+            <label className="label3">
+              Hike Name
+              <input value={name} onChange={(event) => { setName(event.target.value) }} id="setName" type="text" />
+            </label>
 
-          <label className="label3">
-            Date
-            <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="date" />
-          </label>
+            <label className="label3">
+              Date
+              <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="date" />
+            </label>
 
-          <label className="label3">
-            Route
-            <select onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" >
-              <option value=""> choose your route</option>
-              {existingRoutes.map((route) => { return (<option key={route._id} value={route._id}>{route.name}</option>) })}
-            </select>
-          </label>
+            <label className="label3">
+              Route
+              <select onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" >
+                <option value=""> choose your route</option>
+                {existingRoutes.map((route) => { return (<option key={route._id} value={route._id}>{route.name}</option>) })}
+              </select>
+            </label>
 
-          <label className="label3">
-            Time
-            <input value={startTime} onChange={(event) => { setStartTime(event.target.value) }} id="setTime" type="time" />
-          </label>
+            <label className="label3">
+              Time
+              <input value={startTime} onChange={(event) => { setStartTime(event.target.value) }} id="setTime" type="time" />
+            </label>
 
-          <label className="label3">
-            Description
-            <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription"></textarea>
-          </label>
+            <label className="label3">
+              Description
+              <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription"></textarea>
+            </label>
+
+            <label className="label3">
+              Image URL
+              <input type='url' value={image} onChange={(event) => { setImage(event.target.value) }} id="setImage">
+              </input>
+            </label>
           </div>
 
           <div className="box-btn">
@@ -147,7 +162,7 @@ function CreateHikePage() {
         })}
 
       </div>
-      </div>
+    </div>
   )
 };
 
