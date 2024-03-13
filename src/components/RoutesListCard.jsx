@@ -9,7 +9,7 @@ function RoutesListCard(props) {
                 <div>
                 <img className= 'card-img' src={image} alt="" />
                 </div>
-                <h9 className='card-title'> {name} </h9>
+                <h4 className='card-title'> {name} </h4>
                 <div className='routes-info'>
                 <p className='card-city'> {city}</p>
                 <p className='card-length'> {length}</p>

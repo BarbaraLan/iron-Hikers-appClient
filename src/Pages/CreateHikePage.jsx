@@ -96,19 +96,20 @@ function CreateHikePage() {
     <div className="createHike-box">
       <h2>Add your Hike</h2>
       <div className="createhike-container">
-        <form className="createhike-formcontainer" onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
+          <div className="createhike-formcontainer">
 
-          <label >
+          <label className="label3">
             Hike Name
             <input value={name} onChange={(event) => { setName(event.target.value) }} id="setName" type="text" />
           </label>
 
-          <label>
+          <label className="label3">
             Date
             <input value={date} onChange={(event) => { setDate(event.target.value) }} id="setDate" type="date" />
           </label>
 
-          <label>
+          <label className="label3">
             Route
             <select onChange={(event) => { setRoute(event.target.value) }} id="setRoute" type="select" >
               <option value=""> choose your route</option>
@@ -116,17 +117,18 @@ function CreateHikePage() {
             </select>
           </label>
 
-          <label>
+          <label className="label3">
             Time
             <input value={startTime} onChange={(event) => { setStartTime(event.target.value) }} id="setTime" type="time" />
           </label>
 
-          <label>
+          <label className="label3">
             Description
             <textarea value={description} onChange={(event) => { setDescription(event.target.value) }} id="setDescription"></textarea>
           </label>
+          </div>
 
-          <div>
+          <div className="box-btn">
             <button className='btn-addHike' onClick={handleSubmit} type="submit">Add New Hike</button>
           </div>
 

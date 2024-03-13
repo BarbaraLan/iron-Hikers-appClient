@@ -25,7 +25,7 @@ function UpcomingHikes(props) {
 
     return(
        <div id="container-upcoming-hikes">
-        <h8>Upcoming Hikes</h8>
+        <h3>Upcoming Hikes</h3>
         <div id='upcoming-hike-list'>
         {upcomingHikes.map((hike) => (
                 <HikeListCard key={hike._id} hike={hike}></HikeListCard>

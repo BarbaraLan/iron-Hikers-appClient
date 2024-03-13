@@ -38,26 +38,23 @@ function SignUpPage() {
     <div className="signup-container">
       <form className="signup-formcontainer" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-        <label>
+        <label className='label2'>
           Name
           <input value={name} onChange={(event) => setName(event.target.value)} type="text" />
         </label>
 
-        <label>
+        <label className='label2'>
           Email
           <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" />
         </label>
 
-        <label>
+        <label className='label2'>
           Password
           <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" />
         </label>
 
-        <div>
+        <div className='btn-box-signup'>
           <button className='signupbutton' type="submit">Sign Up!</button>
-        </div>
-
-        <div>
           <Link to="/login">
             <button className='alreadylogged-button' type="button">Already Have an Account - Log In!</button>
           </Link>

@@ -6,9 +6,9 @@ import groupPhoto from '../assets/groupPhoto.jpg'
 
 function AboutPage() {
     return (
-        <>
+        <nav className='about-box'>
             <img className='groupPhoto' src={groupPhoto} alt="" />
-            <h4>About Us</h4>
+            <p className='about-us'>About Us</p>
             <div className='home3'>
 
                 <div className='barbiDiv'>
@@ -27,7 +27,7 @@ function AboutPage() {
                 </div >
 
             </div >
-        </>
+            </nav>
     )
 }
 
