@@ -4,7 +4,7 @@ import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005/api";
+const API_URL = import.meta.env.VITE_API_URL
 
 function CreateHikePage() {
   const navigate = useNavigate()
@@ -23,7 +23,7 @@ function CreateHikePage() {
 
   const getAllRoutes = () => {
     axios
-      .get('http://localhost:5005/api/routes')
+      .get(`${API_URL}/api/routes`)
       .then((response) => {
         setExistingRoutes(response.data);
       })

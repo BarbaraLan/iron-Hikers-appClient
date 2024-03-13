@@ -5,6 +5,8 @@ import { AuthContext } from "../context/auth.context";
 import { useParams } from 'react-router-dom';
 import '../style/HikeIdPage.css'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function HikeIdPage(props) {
 
     const [existingRoute, setExistingRoute] = useState('');
@@ -18,7 +20,7 @@ function HikeIdPage(props) {
 
     const hikeIdCall = () => {
         axios
-            .get(`http://localhost:5005/api/hikes/${hikeId}`)
+            .get(`${API_URL}/api/hikes/${hikeId}`)
             .then((response) => {
                 setExistingRoute(response.data);
                 console.log(existingRoute);

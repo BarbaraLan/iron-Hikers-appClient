@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import axios from 'axios';
 
-
-const API_URL = "http://localhost:5005/api/user/update";
+const API_URL = import.meta.env.VITE_API_URL
 
 //axios call to get username, and email on backlog
 
@@ -44,7 +43,7 @@ function UserPage() {
         // console.log(userData);
 
         axios
-            .put(`${API_URL}`, userData)
+            .put(`${API_URL}/api/user/update`, userData)
             .then((response) => {
                 response.data
 
@@ -65,7 +64,7 @@ function UserPage() {
         
         if (userInfo) {
             axios
-                .get(`http://localhost:5005/api/user/${userInfo._id}`)
+                .get(`${API_URL}/api/user/${userInfo._id}`)
                 .then((response) => {
                     setUserId(response.data.userId || "");
                     setEmail(response.data.email || "");
@@ -100,7 +99,7 @@ function UserPage() {
             {data && (
                 <div className="data">
                     <h2>User Profile</h2>
-                    <div>Username: {userInfo._id}</div>
+                    <div>Username: {userInfo.name}</div>
                     <div>Email: {email}</div>
                     <div>Age: {age}</div>
                     <div>Hobbies: {hobbies}</div>

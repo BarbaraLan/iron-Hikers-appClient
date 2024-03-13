@@ -3,7 +3,7 @@ import '../style/SignUpPage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URI = "http://localhost:5005/auth/signup";
+const API_URL = import.meta.env.VITE_API_URL
 
 function SignUpPage() {
 
@@ -18,7 +18,7 @@ function SignUpPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(API_URI, { name, email, password })
+       .post(`${API_URL}/auth/signup`, { name, email, password })
       .then((response) => {
 
 

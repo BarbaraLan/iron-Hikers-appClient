@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import HikeListCard from "../components/HikeListCard";
 import '../style/DayHikePage.css'
 
+const API_URL = import.meta.env.VITE_API_URL
 
 
 function DayHikesPage() {
     const { date } = useParams();
-    const API_URL = 'http://localhost:5005/api'
     const [dayHikes, setDayHikes] = useState([]);
     const [hikesLoaded, setHikesLoaded] = useState(false);
 
