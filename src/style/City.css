@@ -11,18 +11,18 @@
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    padding: 70px;
+    padding: 50px;
 }
 
 .city,
 .country {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
-    padding: 30px 100px;
+    padding: 30px;
     color: #303030;
     background-color: rgb(254, 251, 231);
     border-radius: 20px;
@@ -34,10 +34,8 @@
     width: 70vw;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
-}
-
-h2 {
-    padding-top: 40px;
+    padding: 10px;
+    color: rgb(254, 251, 231);
 }
 
 .submit-city:hover {

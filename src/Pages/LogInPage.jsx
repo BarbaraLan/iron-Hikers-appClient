@@ -46,7 +46,7 @@ function LogInPage() {
         <h2>Login</h2>
 
         <div className="login-formcontainer">
-          <label>
+          <label className='label2'>
             Email
             <input
               value={email}
@@ -56,7 +56,7 @@ function LogInPage() {
             />
           </label>
 
-          <label>
+          <label className='label2'>
             Password
             <input
               value={password}
@@ -66,11 +66,8 @@ function LogInPage() {
             />
           </label>
 
-          <div>
+          <div className='btn-box-signup'>
             <button className='login-button' type="submit">Log In!</button>
-          </div>
-
-          <div>
             <Link to="/signup">
               <button className='signup-button' type="button">Don't Have an Account - Sign up!</button>
             </Link>
