@@ -4,6 +4,8 @@ import axios from 'axios';
 import RoutesListCard from '../components/RoutesListCard';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function Routes() {
 
     const [existingRoutes, setExistingRoutes] = useState([]); // Routes database array
@@ -25,7 +27,7 @@ function Routes() {
 
     const getAllRoutes = () => {
         axios
-            .get('http://localhost:5005/api/routes')
+            .get(`${API_URL}/api/routes`)
             .then((response) => {
                 setExistingRoutes(response.data);
             })
@@ -40,7 +42,7 @@ function Routes() {
     const postNewRoute = () => {
 
         axios
-            .post("http://localhost:5005/api/routes/create", {
+            .post(`${API_URL}/api/routes/create`, {
                 name, city, length, duration, intensity, type, description, map, image, routeComments, ratings
             })
             .then((response) => {

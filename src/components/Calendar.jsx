@@ -3,6 +3,8 @@ import { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function Calendar(props) {
   const {today, setToday, month, setMonth, year, setYear, formatDate} = props;
 
@@ -73,7 +75,7 @@ function Calendar(props) {
 
   const getMonthHikeData = (yearAndMonth) =>{
     axios
-    .get(`http://localhost:5005/api/day/${yearAndMonth}`)
+    .get(`${API_URL}/api/day/${yearAndMonth}`)
     .then((response) => {
       setDayHikesArray([...response.data]);
       //console.log(dayHikesArray);

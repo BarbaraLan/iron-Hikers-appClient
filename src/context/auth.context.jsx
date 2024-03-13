@@ -2,13 +2,13 @@
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const AuthContext = createContext();
 
 function AuthProviderWrapper(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-
-    const API_URL = "http://localhost:5005"
 
     const [userInfo, setUserInfo] = useState(null);
 
