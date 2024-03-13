@@ -91,11 +91,7 @@ function UserPage() {
 
 
     return (
-
-
-
-        <div>
-
+        <div className='user-page-general'>
             {data && (
                 <div className="data">
                     <h2>User Profile</h2>
@@ -110,7 +106,7 @@ function UserPage() {
             )}
 
 
-            <button id="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
+            <button className="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
 
             {showForm && (
                 <form className="form">
@@ -149,12 +145,12 @@ function UserPage() {
                     >
                     </textarea>
 
-                    <button onClick={handleSubmission}>Store my data</button>
+                    <button className= 'storeData' onClick={handleSubmission}>Store my data</button>
 
                 </form>)}
 
 
-            <button onClick={handleLogout}>Log Out</button>
+            <button className= 'log-out' onClick={handleLogout}>Log Out</button>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}

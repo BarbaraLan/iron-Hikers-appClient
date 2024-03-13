@@ -53,11 +53,11 @@ function SignUpPage() {
           <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" />
         </label>
 
-        <div className="signupbutton-div">
+        <div>
           <button className='signupbutton' type="submit">Sign Up!</button>
         </div>
 
-        <div className="alreadylogged-div">
+        <div>
           <Link to="/login">
             <button className='alreadylogged-button' type="button">Already Have an Account - Log In!</button>
           </Link>

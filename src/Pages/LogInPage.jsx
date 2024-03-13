@@ -64,11 +64,11 @@ function LogInPage() {
             />
           </label>
 
-          <div className="login-button-div">
+          <div>
             <button className='login-button' type="submit">Log In!</button>
           </div>
 
-          <div className="signupbutton-div">
+          <div>
             <Link to="/signup">
               <button className='signup-button' type="button">Don't Have an Account - Sign up!</button>
             </Link>
