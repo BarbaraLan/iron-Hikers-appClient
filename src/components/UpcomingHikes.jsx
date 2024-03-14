@@ -17,7 +17,6 @@ function UpcomingHikes(props) {
             .get(`${API_URL}/api/hikes/upcoming/${todayDate}`)
             .then((response) => {
                 setUpcomingHikes([...response.data]);
-                console.log(upcomingHikes);
             })
             .catch((error) => error);
     }, []);
