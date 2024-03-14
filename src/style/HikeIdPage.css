@@ -9,23 +9,54 @@
     justify-content: center;
 }
 
-.hikeInfoId {
-    margin: 20px;
+.name-and-img{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 90px;
+    margin-bottom: 30px;
+}
+
+.title-back2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+    opacity: 60%;
+    height: 230px;
+    padding: 10px;
+    width: 228px;
+}
+
+.hike-id-img{
+    height: 230px;
+}
+
+.hikeInfoId {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 20px;
-    padding: 10px 0px;
-    color: #303030;
+    font-size: 17px;
+    padding-bottom: 20px;
+    color: #303030ba;
     background-color: rgba(253, 251, 240, 0.836);
-    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
     width: 350px;
 }
 
-.join-btn {
-    margin-bottom: 20px;
+.span-color{
+    color: #303030;
+}
+
+.join-btn, .toggle-edit-form-btn, .hike-delete-btn {
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,10 +70,7 @@
     width: 350px;
 }
 
-.join-btn:hover {
+.join-btn:hover, .toggle-edit-form-btn:hover,  .hike-delete-btn:hover{
     background-color: #5b5c38;
 }
 
-.hike-id-img{
-    width: 150px;
-}
