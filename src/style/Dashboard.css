@@ -1,8 +1,8 @@
 .completeDash{
-    background-image: url("../assets/familyHiking.avif");
+    background-image: url("../assets/mountain2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 90vh;
     overflow-y: scroll;
 }
 
@@ -29,3 +29,9 @@
     border-radius: 20px;
     width: 70vw;
 }
+
+.JoinHike:hover,
+.CreateHike:hover {
+    background-color: #303030;
+    color:  rgb(254, 251, 231);;
+} 

@@ -1,46 +1,48 @@
 .createHike-box{
-    background-image: url("../assets/mountain.jpeg");
+    background-image: url("../assets/mountain.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 90vh;
 }
 
 .createhike-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.createhike-formcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 60px;
+    padding: 30px;
+    width: 80vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    color: #5b5c38;
+    background-color: rgb(254, 251, 231);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.box-btn{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.createhike-formcontainer {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    width: 80vw;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px; 
-    color: #5b5c38;
-    gap: 10px;
-    background-color: rgb(254, 251, 231);
-    height: 380px;
-    font-family: "Bebas Neue", sans-serif;
-}
-
-label{
-    display: flex;
-    justify-content: space-between;
-}
-
-
 .btn-addHike{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 10px;
     background-color: #303030;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
+    color: rgb(254, 251, 231);
+    border-radius: 10px;
+    width: 50vw;
 }
 
 .btn-addHike:hover{

@@ -3,7 +3,7 @@ import '../style/City.css';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 
-// npm install countries-list gives you all countries says AI. will put on backlog to try
+const API_URL = import.meta.env.VITE_API_URL
 
 
 function CityPage() {
@@ -15,6 +15,8 @@ function CityPage() {
 
     const { userInfo } = useContext(AuthContext)
     const userId = userInfo._id
+
+    
 
     const countryCitiesMap = {
         'Spain': ['Barcelona', 'Madrid'],
@@ -44,7 +46,7 @@ function CityPage() {
         };
 
         axios
-            .put(('http://localhost:5005/api/user/update'), userData)
+            .put((`${API_URL}/api/user/update`), userData)
             .then((response) => {
                 setShowForm(false)
                 /* we should add here a message for the user (SUCCESS) */
@@ -55,7 +57,7 @@ function CityPage() {
     useEffect(() => {
 
         axios
-            .get(`http://localhost:5005/api/user/${userId}`)
+            .get(`${API_URL}/api/user/${userId}`)
             .then((response) => {
                 if(response.data.city){
                     setShowForm(false)

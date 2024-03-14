@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function RouteIdPage(props) {
 
     const [existingRoute, setExistingRoute] = useState('');
@@ -17,7 +19,7 @@ function RouteIdPage(props) {
 
     const routeIdCall = () => {
         axios
-            .get(`http://localhost:5005/api/routes/${routId}`)
+            .get(`${API_URL}/api/routes/${routId}`)
             .then((response) => {
                 setExistingRoute(response.data);
             })
@@ -37,7 +39,7 @@ function RouteIdPage(props) {
 
             <div className='complete-id-info'>
                 <div className='title-back'>
-                <h8> {name} </h8>
+                <h3> {name} </h3>
                 </div>
 
                 <div className='route-id-info'>

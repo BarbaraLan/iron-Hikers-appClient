@@ -3,6 +3,8 @@ import HikeListCard from "./HikeListCard";
 import axios from "axios";
 import '../style/UpcomingHikes.css';
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function UpcomingHikes(props) {
     const {today, month, year, formatDate} = props;
     const [upcomingHikes, setUpcomingHikes] = useState([]);
@@ -13,7 +15,7 @@ function UpcomingHikes(props) {
     useEffect(() => {
         // console.log(yearMonth, todayDate)
         axios
-        .get(`http://localhost:5005/api/hikes/upcoming/${todayDate}`)
+        .get(`${API_URL}/api/hikes/upcoming/${todayDate}`)
         .then((response) => {
             setUpcomingHikes([...response.data]);
             console.log(upcomingHikes);
@@ -23,7 +25,7 @@ function UpcomingHikes(props) {
 
     return(
        <div id="container-upcoming-hikes">
-        <h8>Upcoming Hikes</h8>
+        <h2>Upcoming Hikes</h2>
         <div id='upcoming-hike-list'>
         {upcomingHikes.map((hike) => (
                 <HikeListCard key={hike._id} hike={hike}></HikeListCard>

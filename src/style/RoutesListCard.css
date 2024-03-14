@@ -15,15 +15,6 @@
     width: 200px;
 }
 
-h9{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 20px;
-    color: rgb(254, 251, 231);
-}
 .card-title{
     width: 25%;
 }
