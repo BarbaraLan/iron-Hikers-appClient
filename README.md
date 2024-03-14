@@ -21,8 +21,11 @@ The process took 8 working days, including the deployment and presentation organ
 🗺️🏔️🚶🏿‍♀️
 
 <img src="./src/assets/Screenshot.png" alt="Dashboard wireframe" width="400px">
+<br></br>
 
 As for the app, it is a activity-based program allowing you to search for hikes and routes around the world, with the option to join hikers if you desire. First, you will need to sign-up, then log-in, to give you access to the hikes and routes. You can update your userpage with your likes and hobbies, as well as selected city, allowing other users to learn more about you. Then you can see a calender showing all of the upcoming hikes and routes in your selected city. You can choose to join hikes, or choose to create your own. Attenders (users) will be added to each route so users can see how many people and who will be hiking on said day.
+
+🔗<link> </link> 
 
 Thank you, and hope you enjoy!
 
@@ -61,6 +64,11 @@ Gavin Alexander, Barbara Lancuba, Kumar Daryanani
 | --- | --- | --- |
 | Navbar | Home, City, Routes, User|
 | Footer | About, GitHub |
+| RouteGuard | To make pages private when logged in |
+| HikeListCard | To show user's hikes|
+| Calendar |Showing available hikes|
+| RouteListCard | A list of routes|
+| Upcoming Hikes | Showing upcoming hike cards to the user |
 
 | Models |
 | --- |
@@ -72,7 +80,5 @@ Gavin Alexander, Barbara Lancuba, Kumar Daryanani
 | Route Comment = {user, date, time, comment, addphoto} |
 
 
-| Backlog |
-| An Interactive map showing available hikes around the world|
-| Add more example of hikes and routes|
-| Install an extension to select all countries in the world|
+| Backlog | 🤔
+| An Interactive map showing available hikes around the world, Add more example of hikes and routes, Install an extension to select all countries in the world
