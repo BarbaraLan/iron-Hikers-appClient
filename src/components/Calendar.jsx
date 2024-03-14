@@ -93,7 +93,7 @@ function Calendar(props) {
   }, [month]);
 
   return (
-   <>
+   <div className="calendar-box">
 
       {/* CALENDAR HEADER - Prev Month - Month/Year - Next Month */}
       <div id="month-bar">
@@ -150,7 +150,7 @@ function Calendar(props) {
           </Fragment>
         ))}
       </div>
-      </>
+      </div>
   );
 }
 

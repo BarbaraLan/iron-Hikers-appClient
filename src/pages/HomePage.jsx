@@ -1,14 +1,13 @@
 import '../style/HomePage.css'
 import hikingImg from '../assets/hiking-route.jpeg'
-import friendsImg from '../assets/finding-friends2.jpeg'
-import funImg from '../assets/have-fun.jpeg'
+import friendsImg from '../assets/finding-friends.jpeg'
+import funImg from '../assets/havefun.avif'
 
 function HomePage() {
     return (
         <>
             <div className='home'>
-                <h1> Welcome to Iron Hikers </h1>
-                <p className='introText'> To the best experience ever created </p>
+               
             </div>
 
             <div className='home2'>

@@ -1,20 +1,11 @@
 
 .home {
-    background-image: url("../assets/homeImg.jpg");
+    background-image: url("../assets/mountain2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 92vh;
+    height: 100vh;
     overflow-y: scroll;
     width: 100%;
-}
-
-.introText {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
-    color: rgb(254, 251, 231);
 }
 
 .home2 {

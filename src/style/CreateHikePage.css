@@ -1,8 +1,8 @@
 .createHike-box{
-    background-image: url("../assets/mountain.jpeg");
+    background-image: url("../assets/mountain.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 90vh;
 }
 
 .createhike-container {
@@ -18,7 +18,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin: 20px;
+    margin: 60px;
+    padding: 30px;
     width: 80vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 

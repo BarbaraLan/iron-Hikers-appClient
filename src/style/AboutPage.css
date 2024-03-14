@@ -1,8 +1,8 @@
 .about-box{
-    background-image: url("../assets/woods.jpeg");
+    background-image: url("../assets/mountain4.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 100vh;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;

@@ -1,12 +1,38 @@
-.navBar {
+.navBar{
+    height: 0;
     display: flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content: space-around;
-    background-color: #869BA6;
-    padding: 20px;
-    width: 100%;
-    height: 8vh;
+    align-items:flex-start;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#logInLink {
+    padding: 10px;
+    color: #303030;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+}
+
+#logo{
+    height: 100px; 
+    padding: 10px;
+}
+
+#logo {
+transition: all 1s ease;
+transform: scale(1);
+}
+
+#logo:active{
+    transform: translate(0px, 3px);
+    -webkit-transform: translate(0px, 3px);
+  }
+
+
+#logo:hover {
+transform: scale(1.5) perspective(1px)
 }
 
 .dashLink:hover , .routes:hover , .userPageLink:hover , .logInLink:hover { 
@@ -14,5 +40,5 @@ padding: 5px;
 }
 
 .userPic {
-    height: 25px;
+    height: 20px;
 }
