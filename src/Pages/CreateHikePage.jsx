@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext} from "../context/auth.context"
 import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ const API_URL = import.meta.env.VITE_API_URL
 function CreateHikePage() {
   const navigate = useNavigate()
   const { userInfo } = useContext(AuthContext);
+
+  const clientId = userInfo._id;
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -75,7 +77,7 @@ function CreateHikePage() {
         // console.log(response)
         navigate(`/hikes/${response.data._id}`)
 
-        return
+        return;
         setName("");
         setDate("");
         setRoute("");

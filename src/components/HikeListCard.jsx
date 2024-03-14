@@ -22,7 +22,16 @@ function HikeListCard(props) {
               <p>{description}</p>
               <p>{date}</p>
               <p>{startTime}</p>
-              <p>{attendees}</p>
+
+              <div>
+                {attendees? 
+                attendees.map((attendee)=>{
+                  return <span>{attendee.name}, </span>
+                })
+                :
+                <p>No one has signed up yet</p>
+                }
+              </div>              
               <p>{hikeComments}</p>
             </div>
           </div>
