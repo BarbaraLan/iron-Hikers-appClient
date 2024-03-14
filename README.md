@@ -20,6 +20,8 @@ The process took 8 working days, including the deployment and presentation organ
 
 🗺️🏔️🚶🏿‍♀️
 
+<img src="./src/assets/Screenshot.png" alt="Dashboard wireframe" width="400px">
+
 As for the app, it is a activity-based program allowing you to search for hikes and routes around the world, with the option to join hikers if you desire. First, you will need to sign-up, then log-in, to give you access to the hikes and routes. You can update your userpage with your likes and hobbies, as well as selected city, allowing other users to learn more about you. Then you can see a calender showing all of the upcoming hikes and routes in your selected city. You can choose to join hikes, or choose to create your own. Attenders (users) will be added to each route so users can see how many people and who will be hiking on said day.
 
 Thank you, and hope you enjoy!
@@ -28,6 +30,9 @@ Thank you, and hope you enjoy!
 👩‍💻<b>The Team</b>
 
 Gavin Alexander, Barbara Lancuba, Kumar Daryanani 
+
+
+<img src="./src/assets/groupPhoto.jpg" alt="Dashboard wireframe" width="400px">
 
 
 ⚙️ BACK END CODE
