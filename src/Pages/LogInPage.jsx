@@ -31,7 +31,7 @@ function LogInPage() {
       })
      .then(() => { navigate('/dashboard') })
       .catch((error) => {
-        const errorDescription = error.response.data.errorMessage;
+        const errorDescription = error.data.errorMessage;
         setErrorMessage(errorDescription);
       });
   };

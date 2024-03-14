@@ -77,7 +77,7 @@ function CreateHikePage() {
         // console.log(response)
         navigate(`/hikes/${response.data._id}`)
 
-        return
+        return;
         setName("");
         setDate("");
         setRoute("");
