@@ -12,7 +12,7 @@ function UserJoinedHikes() {
 
     }, [])
     return(
-        {/*Map the user's joinedHikes array and display a HikeListCard for each with the appropriate info*/}
+        {/*TO-DO - Map the user's joinedHikes array and display a HikeListCard for each with the appropriate info*/}
     )
 }
 

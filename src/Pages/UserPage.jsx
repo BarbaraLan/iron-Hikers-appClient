@@ -6,8 +6,6 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL
 
-//axios call to get username, and email on backlog
-
 function UserPage() {
 
     const { userInfo, logoutUser } = useContext(AuthContext);
@@ -17,7 +15,6 @@ function UserPage() {
     const [email, setEmail] = useState("");
     const [selectedCity, setSelectedCity] = useState("");
 
-
     const [age, setAge] = useState("");
     const [hobbies, setHobbies] = useState("");
     const [likes, setLikes] = useState("");
@@ -26,7 +23,6 @@ function UserPage() {
 
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [successMessage, setSuccessMessage] = useState(undefined);
-
 
     const navigate = useNavigate();
 
@@ -40,7 +36,6 @@ function UserPage() {
             likes: likes,
             description: description,
         };
-        // console.log(userData);
 
         axios
             .put(`${API_URL}/api/user/update`, userData)
@@ -61,7 +56,6 @@ function UserPage() {
     function getUserData() {
         console.log(`This is the ${userInfo}`);
 
-
         if (userInfo) {
             axios
                 .get(`${API_URL}/api/user/${userInfo._id}`)
@@ -79,7 +73,6 @@ function UserPage() {
         }
     }
 
-
     useEffect(() => {
         getUserData();
     }, [userInfo]);
@@ -88,7 +81,6 @@ function UserPage() {
         logoutUser();
         navigate('/');
     };
-
 
     return (
         <div className='user-page-general'>
@@ -107,7 +99,6 @@ function UserPage() {
                 </>
             )}
 
-
             <button className="btn" onClick={() => { setShowForm(!showForm) }}>Show Edit Form</button>
 
             {showForm && (
@@ -115,53 +106,49 @@ function UserPage() {
                     <div className='form-no-btn'>
                         <label className='label3' htmlFor="age">Age
                             <input
-                                type="number"
-                                name="age"
-                                placeholder="Enter your age"
-                                onChange={(e) => setAge(e.target.value)}
-                                value={age}
+                             type="number"
+                             name="age"
+                             placeholder="Enter your age"
+                             onChange={(e) => setAge(e.target.value)}
+                             value={age}
                             />
                         </label>
                         <label className='label3' >Hobbies
                             <input
-                                type="text"
-                                name="hobbies"
-                                placeholder="Type your hobbies"
-                                onChange={(e) => setHobbies(e.target.value)}
-                                value={hobbies}
+                              type="text"
+                              name="hobbies"
+                              placeholder="Type your hobbies"
+                              onChange={(e) => setHobbies(e.target.value)}
+                              value={hobbies}
                             />
                         </label>
                         <label className='label3' >Likes
-                            <input
-                                type="text"
-                                name="likes"
-                                placeholder="Type your likes"
-                                onChange={(e) => setLikes(e.target.value)}
-                                value={likes}
+                           <input
+                            type="text"
+                            name="likes"
+                            placeholder="Type your likes"
+                            onChange={(e) => setLikes(e.target.value)}
+                            value={likes}
                             />
                         </label>
                         <label className='label3' >Additional Info
                             <textarea
-                                name="description"
-                                placeholder="Describe yourself"
-                                onChange={(e) => setDescription(e.target.value)}
-                                value={description}
+                             name="description"
+                             placeholder="Describe yourself"
+                             onChange={(e) => setDescription(e.target.value)}
+                             value={description}
                             >
                             </textarea>
                         </label>
                     </div>
                     <button className='storeData' onClick={handleSubmission}>Store my data</button>
-
                 </form>)}
-
 
             <button className='log-out' onClick={handleLogout}>Log Out</button>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}
-
         </div>
-
     );
 }
 

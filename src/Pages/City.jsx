@@ -5,7 +5,6 @@ import { AuthContext } from '../context/auth.context';
 
 const API_URL = import.meta.env.VITE_API_URL
 
-
 function CityPage() {
 
     const [selectedCountry, setSelectedCountry] = useState('');
@@ -16,12 +15,10 @@ function CityPage() {
     const { userInfo } = useContext(AuthContext)
     const userId = userInfo._id
 
-    
-
     const countryCitiesMap = {
         'Spain': ['Barcelona', 'Madrid'],
         'France': ['Paris'],
-        'Scotland': ['Edimburgh'],
+        'Scotland': ['Edinburgh'],
         'Italy': ['Rome']
     }
 
@@ -29,7 +26,6 @@ function CityPage() {
         const country = event.target.value
         setSelectedCountry(country);
         setCountryCities(countryCitiesMap[country]);
-
     }
 
     const handleCityChange = (event) => {
@@ -49,26 +45,24 @@ function CityPage() {
             .put((`${API_URL}/api/user/update`), userData)
             .then((response) => {
                 setShowForm(false)
-                /* we should add here a message for the user (SUCCESS) */
+                /*TO-DO - we should add here a message for the user (SUCCESS) */
             })
             .catch((error) => error)
     }
 
     useEffect(() => {
-
         axios
             .get(`${API_URL}/api/user/${userId}`)
             .then((response) => {
-                if(response.data.city){
+                if (response.data.city) {
                     setShowForm(false)
                     setSelectedCity(response.data.city)
-                }else{
+                } else {
                     setShowForm(true)
                 }
             })
             .catch((error) => error)
     }, [])
-
 
     return (
         <>
@@ -125,6 +119,7 @@ function CityPage() {
 
 
 }
+
 export default CityPage;
 
 

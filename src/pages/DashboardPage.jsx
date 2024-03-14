@@ -4,7 +4,7 @@ import '../style/Dashboard.css'
 function DashboardPage () {
     return (
         <div className='completeDash'>
-            <h2> Choose your path </h2>
+         <h2> Choose your path </h2>
         
         <div className='dash-box'>
             {/*TO-DO: Add hikes the user is going to, in chronological order. Can reuse the code for Upcoming Hikes, but filter them by whether the user is in the attendees array*/}

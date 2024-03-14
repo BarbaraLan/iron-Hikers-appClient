@@ -23,7 +23,6 @@ function JoinHikePage() {
             <Calendar today={today} setToday={setToday} month={month} setMonth={setMonth} year={year} setYear={setYear} formatDate={formatDate}/>
             <UpcomingHikes today={today} month={month} year={year} formatDate={formatDate}/>
         </div>
-    )
-}
+    )}
 
 export default JoinHikePage;
