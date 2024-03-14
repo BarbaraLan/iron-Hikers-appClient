@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from "react";
-import { AuthContext} from "../context/auth.context"
+import { AuthContext } from "../context/auth.context"
 import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,6 @@ function CreateHikePage() {
     getAllRoutes();
   }, []);
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -74,7 +73,6 @@ function CreateHikePage() {
     axios
       .post(`${API_URL}/api/hikes/create`, newHike)
       .then((response) => {
-        // console.log(response)
         navigate(`/hikes/${response.data._id}`)
 
         return
@@ -97,7 +95,6 @@ function CreateHikePage() {
     axios
       .delete(`${API_URL}/api/hikes/${id}`)
       .then((response) => {
-        // console.log(response);
         getAllHikes()
       })
       .catch((error) => console.log(error));
@@ -162,11 +159,9 @@ function CreateHikePage() {
             </div>
           );
         })}
-
       </div>
-    </div>
+      </div>
   )
 };
-
 
 export default CreateHikePage;

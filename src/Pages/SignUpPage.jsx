@@ -21,18 +21,15 @@ function SignUpPage() {
        .post(`${API_URL}/auth/signup`, { name, email, password })
       .then((response) => {
 
-
-        const successDescription = "The user has been created!"
-        setSuccessMessage(successDescription);
-        setErrorMessage(undefined); 
+      const successDescription = "The user has been created!"
+      setSuccessMessage(successDescription);
+      setErrorMessage(undefined); 
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
   };
-
-
 
   return (
     <div className="signup-container">
@@ -67,6 +64,7 @@ function SignUpPage() {
     </div>
   );
 }
+
 export default SignUpPage;
 
 

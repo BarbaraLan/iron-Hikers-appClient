@@ -1,4 +1,3 @@
-// src/context/theme.context.jsx
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
@@ -12,38 +11,35 @@ function AuthProviderWrapper(props) {
 
     const [userInfo, setUserInfo] = useState(null);
 
-    const authenticateUser = () => {   //machine to check ticket
-        const storedToken = localStorage.getItem('authToken'); // human checking pocket for ticket
-        if (storedToken) { //if I have the the ticket
-           return axios
-                .get(`${API_URL}/auth/verify`, // putting the ticket inside the machine
-                    { headers: { Authorization: `Bearer ${storedToken}` } } // machine reading the ticket
+    const authenticateUser = () => {
+        const storedToken = localStorage.getItem('authToken');
+        if (storedToken) {
+            return axios
+                .get(`${API_URL}/auth/verify`,
+                    { headers: { Authorization: `Bearer ${storedToken}` } }
                 )
-                .then((response) => { // ticket accepted
+                .then((response) => {
                     const user = response.data;
-                    // console.log(user);
-                    setIsLoggedIn(true); 
+                    setIsLoggedIn(true);
                     setIsLoading(false);
                     setUserInfo(user);
                 })
-
-                .catch((error) => { // ticket rejected
+                .catch((error) => {
                     setIsLoggedIn(false);
                     setIsLoading(false);
                     setUserInfo(null);
-                });     
-                
+                });
         }
     }
 
     useEffect(() => {
-    authenticateUser()
+        authenticateUser()
     }, []);
 
     const logoutUser = () => {
-        localStorage.removeItem('authToken'); 
-        setIsLoggedIn(false); 
-        setUserInfo(null); 
+        localStorage.removeItem('authToken');
+        setIsLoggedIn(false);
+        setUserInfo(null);
     };
 
     const storeToken = (token) => {
@@ -51,11 +47,11 @@ function AuthProviderWrapper(props) {
     }
 
     return (
-        <AuthContext.Provider value={{ userInfo, setUserInfo, storeToken, authenticateUser, logoutUser, isLoggedIn}}>
+        <AuthContext.Provider value={{ userInfo, setUserInfo, storeToken, authenticateUser, logoutUser, isLoggedIn }}>
             {props.children}
         </AuthContext.Provider>
     );
 
 }
 
-export { AuthContext, AuthProviderWrapper };   // <== UPDATE
+export { AuthContext, AuthProviderWrapper }; 

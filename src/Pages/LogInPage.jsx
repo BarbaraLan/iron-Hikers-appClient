@@ -28,7 +28,7 @@ function LogInPage() {
         setErrorMessage(undefined);
         storeToken(response.data.authToken);
 
-        return authenticateUser();
+      return authenticateUser();
       })
      .then(() => { navigate('/dashboard') })
       .catch((error) => {
@@ -42,8 +42,8 @@ function LogInPage() {
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
        {/*  <video className='video' autoPlay loop muted>
-    <source src={video} type='video/mp4' />
-</video> */}
+       <source src={video} type='video/mp4' />
+       </video> */}
 
         <div className="login-formcontainer">
           <label className='label2'>
@@ -78,9 +78,6 @@ function LogInPage() {
       </form>
     </div>
   );
-
-
-
 }
 
 export default LogInPage;

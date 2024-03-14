@@ -6,7 +6,7 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL
 
 function Calendar(props) {
-  const {today, setToday, month, setMonth, year, setYear, formatDate} = props;
+  const { today, setToday, month, setMonth, year, setYear, formatDate } = props;
 
   const [monthDays, setMonthDays] = useState(
     new Date(year, month + 1, 0).getDate()
@@ -30,14 +30,14 @@ function Calendar(props) {
     let newMonth = action === "minus" ? month - 1 : month + 1;
     if (newMonth < 0) {
       newMonth = 11;
-      newYear = year -1;
+      newYear = year - 1;
       setYear(newYear);
     } else if (newMonth > 11) {
       newMonth = 0;
-      newYear = year +1;
+      newYear = year + 1;
       setYear(newYear);
     }
-      
+
     setMonth(newMonth);
     //setToday(new Date(newYear, newMonth));
     setMonthDays(new Date(newYear, newMonth + 1, 0).getDate());
@@ -73,27 +73,25 @@ function Calendar(props) {
     return dayClasses;
   };
 
-  const getMonthHikeData = (yearAndMonth) =>{
+  const getMonthHikeData = (yearAndMonth) => {
     axios
-    .get(`${API_URL}/api/day/${yearAndMonth}`)
-    .then((response) => {
-      setDayHikesArray([...response.data]);
-      //console.log(dayHikesArray);
-    })
-    .catch((error) => error);
+      .get(`${API_URL}/api/day/${yearAndMonth}`)
+      .then((response) => {
+        setDayHikesArray([...response.data]);
+      })
+      .catch((error) => error);
   }
 
-  const monthName = (mon)=> {
+  const monthName = (mon) => {
     return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][mon];
- }
- 
+  }
 
   useEffect(() => {
     getMonthHikeData(yearAndMonth);
   }, [month]);
 
   return (
-   <div className="calendar-box">
+    <div className="calendar-box">
 
       {/* CALENDAR HEADER - Prev Month - Month/Year - Next Month */}
       <div id="month-bar">
@@ -150,7 +148,7 @@ function Calendar(props) {
           </Fragment>
         ))}
       </div>
-      </div>
+    </div>
   );
 }
 

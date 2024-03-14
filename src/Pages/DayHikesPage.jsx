@@ -13,13 +13,11 @@ function DayHikesPage() {
     const [hikesLoaded, setHikesLoaded] = useState(false);
 
     useEffect(() => {
-        //Axios call to populate page
         axios
             .get(`${API_URL}/api/day/${date}`)
             .then((response) => {
                 setDayHikes(response.data);
                 setHikesLoaded(true);
-                // console.log(response.data);
             })
             .catch((error) => {
                 setHikesLoaded(false);

@@ -4,14 +4,12 @@ import { AuthContext } from "../context/auth.context";
 import userLogo from '../assets/userLogo.png'
 import logo from '../assets/logo-mountain.png'
 
-
 import '../style/NavBar.css'
 
 function NavBar() {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const [showMenu, setShowMenu] = useState(false)
-
 
     return (
         <nav className="navBar">
@@ -31,10 +29,7 @@ function NavBar() {
                     </div>
                     <div className="close-menu" ></div>
                 </>
-            ) :
-
-                (
-
+            ) : (
                     <>
                         <Link className='logo-link' to='/'> <img id='logo' src={logo} alt="" /> </Link>
                         <Link id='logInLink' to='/login'> Log In </Link>

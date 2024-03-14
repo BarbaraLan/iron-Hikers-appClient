@@ -1,4 +1,3 @@
-
 import './style/App.css'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
@@ -21,7 +20,6 @@ import HikeIdPage from './pages/HikeIdPage'
 import DayHikesPage from "./pages/DayHikesPage"
 
 import IsPrivate from './components/RouteGuard'
-
 
 function App() {
   return (
