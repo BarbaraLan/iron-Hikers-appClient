@@ -16,15 +16,15 @@ function HikeIdPage(props) {
   const [errorMessage, setErrorMessage] = useState("");
   const [showEditForm, setShowEditForm] = useState(false);
 
-   const [name, setName] = useState("");
-   const [description, setDescription] = useState("");
-   const [route, setRoute] = useState("");
-   const [date, setDate] = useState("");
-   const [startTime, setStartTime] = useState("");
-   const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [route, setRoute] = useState("");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [image, setImage] = useState("");
 
   const hikeId = useParams().hikeId;
-  const {createdBy, hikeComments} = thisHike;
+  const { createdBy, hikeComments } = thisHike;
 
   const { userInfo } = useContext(AuthContext);
   const userId = userInfo?._id;
@@ -52,7 +52,7 @@ function HikeIdPage(props) {
       });
   };
 
- 
+
   const handleJoin = (event) => {
     navigate("/dashboard");
     event.preventDefault();
@@ -74,51 +74,51 @@ function HikeIdPage(props) {
 
   const handleEditHike = () => {
     if (name === "") {
-        window.alert("Please enter a name")
-        return;
-      }
-  
-      if (date === "") {
-        window.alert("Please enter a date amount");
-        return;
-      }
-  
-      if (route === "") {
-        window.alert("Please enter a route");
-        return;
-      }
-  
-      if (startTime === "") {
-        window.alert("Please enter a time");
-        return;
-      }
-  
-      if (description === "") {
-        window.description = "Please enter a description";
-      }
-  
-      if (image === "") {
-        window.description = "Please enter an image";
-      }
-  
-      const updatedHike = { clientId: userId, name, description, route, date, startTime, image };
-      console.log(updatedHike);
+      window.alert("Please enter a name")
+      return;
+    }
 
-      axios
-        .put(`${API_URL}/api/hikes/edit/${hikeId}`, updatedHike)
-        .then((response) => {
-          navigate(`/hikes/${response.data._id}`)
-  
-          return
-        })
-  
-        .catch((error) => {
-          const errorDescription = error.data.errorMessage;
-          setErrorMessage(errorDescription)
-        });
-    };
-  
-    const handleDeleteHike = () => {
+    if (date === "") {
+      window.alert("Please enter a date amount");
+      return;
+    }
+
+    if (route === "") {
+      window.alert("Please enter a route");
+      return;
+    }
+
+    if (startTime === "") {
+      window.alert("Please enter a time");
+      return;
+    }
+
+    if (description === "") {
+      window.description = "Please enter a description";
+    }
+
+    if (image === "") {
+      window.description = "Please enter an image";
+    }
+
+    const updatedHike = { clientId: userId, name, description, route, date, startTime, image };
+    console.log(updatedHike);
+
+    axios
+      .put(`${API_URL}/api/hikes/edit/${hikeId}`, updatedHike)
+      .then((response) => {
+        navigate(`/hikes/${response.data._id}`)
+
+        return
+      })
+
+      .catch((error) => {
+        const errorDescription = error.data.errorMessage;
+        setErrorMessage(errorDescription)
+      });
+  };
+
+  const handleDeleteHike = () => {
     axios
       .delete(`${API_URL}/api/hikes/delete/${hikeId}`, {
         headers: {
@@ -139,7 +139,7 @@ function HikeIdPage(props) {
     getAllRoutes();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     setName(thisHike.name);
     setDescription(thisHike.description);
     setRoute(thisHike.route);
@@ -150,23 +150,29 @@ function HikeIdPage(props) {
 
   }, [thisHike])
 
-    return (
-        <div className='hike-box'>
-            <h2> {name} </h2>
-            <div className='hikeInfoId'>
-                <img className='hikeImg' src={image} alt="" />
-                <p> description:  {description}</p>
-                <p> route {route?.name}</p>
- <p>Date: {date} - Time: {startTime}</p>
-                <p> Created By:{createdBy?.name}</p>
-                <p>Participants:</p>
-                {thisHike.attendees?.map((user) => {
-                    return (
-                        <div key={user._id}> {user.name} </div>
-                    )
-                })}
-                <p> comments: {hikeComments}</p>
-                <img className='hike-id-img' src={route?.image} alt={name} /> 
+  return (
+    <div className='hike-box'>
+
+      <div className="name-and-img">
+        <div className="title-back2">
+        <h3> {name} </h3>
+        </div>
+        <img className='hike-id-img' src={route?.image} alt={name} />
+      </div>
+
+      <div className='hikeInfoId'>
+        <img className='hikeImg' src={image} alt="" />
+        <p><span className="span-color"> description: </span>  {description}</p>
+        <p> <span className="span-color"> route:</span> {route?.name}</p>
+        <p> <span className="span-color"> Date:</span> {date} - Time: {startTime}</p>
+        <p> <span className="span-color"> Created By:</span>{createdBy?.name}</p>
+        <p> <span className="span-color"> Participants:</span></p>
+        {thisHike.attendees?.map((user) => {
+          return (
+            <div key={user._id}> {user.name} </div>
+          )
+        })}
+        <p> <span className="span-color"> comments: </span>{hikeComments}</p>
       </div>
 
       {createdBy?._id === userId && (
@@ -202,7 +208,7 @@ function HikeIdPage(props) {
                   <label className="label3">
                     Route
                     <select
-                    value={route}
+                      value={route}
                       onChange={(event) => {
                         setRoute(event.target.value);
                       }}
