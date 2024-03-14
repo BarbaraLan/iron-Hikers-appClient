@@ -5,9 +5,7 @@ import '../style/LogInPage.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
-
-const API_URL = "http://localhost:5005/auth/login";
-
+const API_URL = import.meta.env.VITE_API_URL
 
 function LogInPage() {
   const [email, setEmail] = useState("");
@@ -22,17 +20,18 @@ function LogInPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(API_URL, { email, password })
+      .post(`${API_URL}/auth/login`, { email, password })
       .then((response) => {
         const successDescription = "The user has been logged in!"
         setSuccessMessage(successDescription);
         setErrorMessage(undefined);
         storeToken(response.data.authToken);
-        authenticateUser();
-        navigate('/dashboard');
+
+        return authenticateUser();
       })
+     .then(() => { navigate('/dashboard') })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.response.data.errorMessage;
         setErrorMessage(errorDescription);
       });
   };
@@ -45,7 +44,7 @@ function LogInPage() {
         <h2>Login</h2>
 
         <div className="login-formcontainer">
-          <label>
+          <label className='label2'>
             Email
             <input
               value={email}
@@ -55,7 +54,7 @@ function LogInPage() {
             />
           </label>
 
-          <label>
+          <label className='label2'>
             Password
             <input
               value={password}
@@ -65,17 +64,15 @@ function LogInPage() {
             />
           </label>
 
-          <div className="login-button-div">
+          <div className='btn-box-signup'>
             <button className='login-button' type="submit">Log In!</button>
-          </div>
-
-          <div className="signupbutton-div">
             <Link to="/signup">
               <button className='signup-button' type="button">Don't Have an Account - Sign up!</button>
             </Link>
 
           </div>
         </div>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </div>
   );

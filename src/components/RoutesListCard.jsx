@@ -5,12 +5,16 @@ function RoutesListCard(props) {
     const { name, city, length, image, ratings } = props.route;
 
     return (
-            <div>
-                <img src={image} alt="" />
-                <h6> {name} </h6>
-                <p> {city}</p>
-                <p> {length}</p>
-                <p> {ratings}</p>
+            <div className='routes-list'>
+                <div>
+                <img className= 'card-img' src={image} alt="" />
+                </div>
+                <h4 className='card-title'> {name} </h4>
+                <div className='routes-info'>
+                <p className='card-city'> {city}</p>
+                <p className='card-length'> {length}</p>
+                <p className='card-rating'> {ratings}</p>
+                </div>
             </div>
     )
 }

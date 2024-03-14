@@ -1,44 +1,38 @@
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    padding: 40px;
+  background-image: url("../assets/mountain3.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  overflow-y: scroll;
   }
   
   .signup-formcontainer {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: whitesmoke;
-  }
-
-  .signup-formcontainer button {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: blue;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .signup-formcontainer button:hover {
-    background-color: darkblue;
-  }
-  
-  .signupbutton-div {
-    padding-bottom: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .signup {
-    font-weight: bold;
+    justify-content:space-between;
+    padding: 70px;
   }
 
-  label {
-    padding: 5px;
+
+  .btn-box-signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    gap: 20px;
+  }
+  
+  .alreadylogged-button, .signupbutton{
+    padding: 10px;
+    justify-content: center;
+    background-color: #303030;
+    color: rgb(254, 251, 231);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    width: 300px;
+  }
+
+  .alreadylogged-button:hover, .signupbutton:hover{
+    background-color: #5b5c38;
   }

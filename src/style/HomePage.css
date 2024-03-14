@@ -1,44 +1,49 @@
-h2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    padding-top: 200px;
-    color: rgb(254, 251, 231);
-}
 
 .home {
-    background-image: url("../assets/homeImg.jpg");
+    background-image: url("../assets/mountain2.jpg");
     background-repeat: no-repeat;
-   background-size:cover;
-    height: 650px;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
     width: 100%;
-}
-
-.introText{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
-    color: rgb(254, 251, 231);
 }
 
 .home2 {
     background-color: #303030;
     height: 400px;
     width: 100%;
+    height: 92vh;
+    overflow-y: scroll;
+    width: 100%;
 }
 
-h3 {
+.hiking-img,
+.friends-img,
+.fun-img {
+    height: 200px;
+    border-radius: 100%;
+    width: 260px;
+}
+
+.images-instructions {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    padding-top: 180px;
+    padding: 30px;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.explaining-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 30px;
+    gap: 10px;
+    flex-wrap: wrap;
     color: rgb(254, 251, 231);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
 }

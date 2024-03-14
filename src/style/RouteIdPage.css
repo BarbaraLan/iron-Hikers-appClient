@@ -1,0 +1,45 @@
+.route-id-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    overflow-y: scroll;
+    margin: 20px;
+}
+
+.route-id-img{
+    width: 100vw;
+}
+
+.title-back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+    height: 67vh;
+    padding: 20px;
+}
+
+.complete-id-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.route-id-info{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    padding: 10px;
+    color: #303030;
+}
+
+.route-id-map{
+    width: 100%;
+    max-height: 240px;
+}

@@ -3,7 +3,7 @@ import '../style/SignUpPage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URI = "http://localhost:5005/auth/signup";
+const API_URL = import.meta.env.VITE_API_URL
 
 function SignUpPage() {
 
@@ -18,7 +18,7 @@ function SignUpPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(API_URI, { name, email, password })
+       .post(`${API_URL}/auth/signup`, { name, email, password })
       .then((response) => {
 
 
@@ -38,26 +38,23 @@ function SignUpPage() {
     <div className="signup-container">
       <form className="signup-formcontainer" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-        <label>
+        <label className='label2'>
           Name
-          <input value={name} onChange={(event) => setName(event.target.value)} id="setName" type="text" />
+          <input value={name} onChange={(event) => setName(event.target.value)} type="text" />
         </label>
 
-        <label>
+        <label className='label2'>
           Email
-          <input value={email} onChange={(event) => setEmail(event.target.value)} id="setEmail" type="email" />
+          <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" />
         </label>
 
-        <label>
+        <label className='label2'>
           Password
-          <input value={password} onChange={(event) => setPassword(event.target.value)} id="setPassword" type="password" />
+          <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" />
         </label>
 
-        <div className="signupbutton-div">
+        <div className='btn-box-signup'>
           <button className='signupbutton' type="submit">Sign Up!</button>
-        </div>
-
-        <div className="alreadylogged-div">
           <Link to="/login">
             <button className='alreadylogged-button' type="button">Already Have an Account - Log In!</button>
           </Link>

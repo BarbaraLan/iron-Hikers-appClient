@@ -1,7 +1,12 @@
-#container-dashboard{
+#container-dashboard {
+    background-image: url("../assets/mountain.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
     display: flex;
-    height: 900px;
+    width: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
