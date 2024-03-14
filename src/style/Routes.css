@@ -6,19 +6,26 @@
     overflow-y: scroll;
 }
 
-.create-route{
-    margin: 60px;
-    margin-left: 200px;
+.btn-create-box{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.create-route{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 60px;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
     padding: 20px;
     color: rgb(254, 251, 231);
     background-color: #303030;
     width: 170px;
+    border-radius: 20px;
 }
 
 .create-route:hover{

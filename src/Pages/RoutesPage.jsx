@@ -56,7 +56,9 @@ function Routes() {
     return (
         <div className='routes-box'> 
             <h2> Explore the routes</h2>
+            <div className='btn-create-box'>
                 <Link className='create-route' to= '/routes/create'> Create New Route </Link>
+                </div>
             <div className="routes-container">
                 {existingRoutes? existingRoutes.map((route) => {
                     return (

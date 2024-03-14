@@ -66,50 +66,59 @@ function CityPage() {
 
     return (
         <>
-        {showForm ? (
-        <div>
-        <h2>Select Your City </h2>
-         <div className='select-city-box'>
-         <div className='country'>
-         <label>Country:</label>
-         <select value={selectedCountry} onChange={handleCountryChange}>
-         <option value=""> Select a Country</option>
+            {showForm ? (
+                <div className='select-city-total'>
+                    <h2>Select Your City </h2>
+                    <div className='select-city-box'>
+                        <div className='country'>
+                            <label>Country:</label>
+                            <select value={selectedCountry} onChange={handleCountryChange}>
+                                <option value=""> Select a Country</option>
 
-        {Object.keys(countryCitiesMap).map((country) => (
-            <option key={country} value={country}>
-            {country}
-            </option>
-            ))}
-        </select>
-        </div>
 
-        <div className='city'>
-        <label>City:</label>
-           <select value={selectedCity} onChange={handleCityChange}>
-              <option value=""> Select a City</option>
+                                {Object.keys(countryCitiesMap).map((country) => (
+                                    <option key={country} value={country}>
+                                        {country}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
 
-         {countryCities.map((city) => (
-         <option key={city} value={city}>
-         {city}
-         </option>
-         ))}
-        </select>
-        </div>
+                        <div className='city'>
+                            <label>City:</label>
+                            <select value={selectedCity} onChange={handleCityChange}>
+                                <option value=""> Select a City</option>
 
-        <button className='submit-city' onClick={handleSubmit}> submit city </button>
-        </div>
-        </div>
-            ) : (
-        <nav className='city-selected'>
-        <p className='city-text'> Your current city is </p>
-        <p> <span className='city-btn' onClick={() => setShowForm(true)}>{selectedCity}
-        <p className='edit-city'>edit</p>
-             </span>
-             </p>
-             </nav>
-            )}
-       </>
-    )}
+                                {countryCities.map((city) => (
+                                    <option key={city} value={city}>
+                                        {city}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <button className='submit-city' onClick={handleSubmit}> submit city </button>
+                    </div>
+                </div>
+            ) :
+            
+                (<nav className='city-selected'>
+                <p className='city-text'> Your current city is </p>
+                   <p> <span className= 'city-btn' onClick={()=>setShowForm(true)}>{selectedCity} 
+                   <p className='edit-city'>edit</p>
+                    </span>
+                    </p>
+                    
+                    </nav>
+
+                )
+            }
+
+        </>
+    )
+
+
+}
 
 export default CityPage;
 

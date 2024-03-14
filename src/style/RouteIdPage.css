@@ -1,45 +1,63 @@
-.route-id-box{
+.route-id-box {
+    background-image: url("../assets/mountain.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 85vh;
+    height: 100vh;
     overflow-y: scroll;
-    margin: 20px;
 }
 
-.route-id-img{
-    width: 100vw;
-}
-
-.title-back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #303030;
-    height: 67vh;
-    padding: 20px;
-}
-
-.complete-id-info{
+.complete-id-title-img {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 550px;
 }
 
-.route-id-info{
+.route-id-img {
+    width: 45vh;
+}
+
+.title-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+    opacity: 60%;
+    height: 60vh;
+    padding: 10px;
+}
+
+.complete-id-info-form {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    margin: 50px;
+}
+
+.route-id-info {
     display: flex;
     flex-direction: column;
     align-items: left;
     font-family: "Bebas Neue", sans-serif;
     font-size: 17px;
-    padding-top: 20px;
-    padding: 10px;
-    color: #303030;
+    padding-bottom: 20px;
+    color: #303030ba;
+    background-color: rgba(253, 251, 240, 0.836);
+    padding: 20px;
 }
 
-.route-id-map{
-    width: 100%;
-    max-height: 240px;
+.route-id-map {
+    width: 45vh;
+}
+
+.titles-descript {
+    color: #5b5c38;
 }
