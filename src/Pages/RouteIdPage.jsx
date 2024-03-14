@@ -95,8 +95,8 @@ function RouteIdPage(props) {
       image,
       clientId: userId
     };
-
-    axios
+    
+     axios
       .put(`${API_URL}/api/routes/edit/${routeId}`, updatedRoute)
       .then((response) => {
         // navigate(`/routes/${response.data._id}`);
@@ -141,29 +141,34 @@ function RouteIdPage(props) {
     setMap(thisRoute.map);
     setImage(thisRoute.image);
   }, [thisRoute]);
+  
+    return (
+      <div> 
+        <div className='route-id-box'>
 
-  return (
-    <div className="route-id-box">
-      <img className="route-id-img" src={image} alt="" />
+            <div className='complete-id-title-img'>
+                <div className='title-back'>
+                    <h3> {name} </h3>
+                </div>
+                <img className='route-id-img' src={image} alt="" />
+            </div>
 
-      <div className="complete-id-info">
-        <div className="title-back">
-          <h3> {name} </h3>
+            <div className='complete-id-info-form'>
+                <img className='route-id-map' src={map} alt="" />
+                <div className='route-id-info'>
+                    <p> <span className='titles-descript'> city:</span>{city}</p>
+                    <p> <span className='titles-descript'> length: </span>{length}km </p>
+                    <p> <span className='titles-descript'> duration: </span>{duration}</p>
+                    <p> <span className='titles-descript'> intensity: </span>{intensity}</p>
+                    <p> <span className='titles-descript'> type: </span>{type}</p>
+                    <p><span className='titles-descript'> description:</span>
+                    <br /> {description}</p>
+                    <p> <span className='titles-descript'> comments:</span> {routeComments}</p>
+                    <p> <span className='titles-descript'> added by: </span>{addedBy}</p>
+                    <p> <span className='titles-descript'> ratings: </span>{ratings}</p>
+                </div>
+            </div>
         </div>
-
-        <div className="route-id-info">
-          <p> {city}</p>
-          <p> {length}</p>
-          <p> {duration}</p>
-          <p> {intensity}</p>
-          <p> {type}</p>
-          <p> {description}</p>
-          <img className="route-id-map" src={map} alt="" />
-          <p> {routeComments}</p>
-          <p> {addedBy}</p>
-          <p> {ratings}</p>
-        </div>
-      </div>
       {addedBy === userId && (
         <>
           {showEditForm ? (
@@ -273,6 +278,7 @@ function RouteIdPage(props) {
         </>
       )}
     </div>
+</div>
   );
 }
 export default RouteIdPage;

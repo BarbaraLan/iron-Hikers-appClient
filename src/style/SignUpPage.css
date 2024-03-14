@@ -21,6 +21,7 @@
     align-items: center;
     justify-content:space-between;
     gap: 20px;
+    
   }
   
   .alreadylogged-button, .signupbutton{
@@ -31,6 +32,7 @@
     font-family: "Bebas Neue", sans-serif;
     font-size: 18px;
     width: 300px;
+    border-radius: 20px;
   }
 
   .alreadylogged-button:hover, .signupbutton:hover{

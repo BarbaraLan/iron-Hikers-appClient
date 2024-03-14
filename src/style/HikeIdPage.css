@@ -1,15 +1,15 @@
-.hike-box{
-    background-image: url("../assets/climbing.jpeg");
+.hike-box {
+    background-image: url("../assets/mountain8.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.hikeInfoId{
+.hikeInfoId {
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -19,13 +19,13 @@
     font-size: 20px;
     padding: 30px 0px;
     color: #303030;
-    background-color: rgb(254, 251, 231);
+    background-color: rgba(253, 251, 240, 0.836);
     border-radius: 20px;
     width: 70vw;
 }
 
-.join-btn{
-    margin: 20px;
+.join-btn {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,11 +34,15 @@
     font-size: 20px;
     padding: 10px;
     color: rgb(254, 251, 231);
-    background-color: #303030;;
+    background-color: #303030;
     border-radius: 20px;
-    width: 70vw; 
+    width: 70vw;
 }
 
 .join-btn:hover {
-background-color: #5b5c38;
+    background-color: #5b5c38;
+}
+
+.hike-id-img{
+    height: 30vh;
 }

@@ -52,7 +52,7 @@ function HikeIdPage(props) {
       });
   };
 
-  //   PUT - add user to attendees array (hikes)
+ 
   const handleJoin = (event) => {
     navigate("/dashboard");
     event.preventDefault();
@@ -117,9 +117,8 @@ function HikeIdPage(props) {
           setErrorMessage(errorDescription)
         });
     };
-
-
-  const handleDeleteHike = () => {
+  
+    const handleDeleteHike = () => {
     axios
       .delete(`${API_URL}/api/hikes/delete/${hikeId}`, {
         headers: {
@@ -151,24 +150,25 @@ function HikeIdPage(props) {
 
   }, [thisHike])
 
-  return (
-    <div className="hike-box">
-      <div className="hikeImg">
-        <img src={image} alt="" />
+    return (
+        <div className='hike-box'>
+            <h2> {name} </h2>
+            <div className='hikeInfoId'>
+                <img className='hikeImg' src={image} alt="" />
+                <p> description:  {description}</p>
+                <p> route {route?.name}</p>
+ <p>Date: {date} - Time: {startTime}</p>
+                <p> Created By:{createdBy?.name}</p>
+                <p>Participants:</p>
+                {thisHike.attendees?.map((user) => {
+                    return (
+                        <div key={user._id}> {user.name} </div>
+                    )
+                })}
+                <p> comments: {hikeComments}</p>
+                <img className='hike-id-img' src={route?.image} alt={name} /> 
       </div>
-      <h3> {name} </h3>
-      <div className="hikeInfoId">
-        <p> Description: {description}</p>
-        <p> Route: {route?.name}</p>
-        <p>Date: {date} - Time: {startTime}</p>
-        <p> Created By:{createdBy?.name}</p>
-        <p>Participants:</p>
-        {thisHike.attendees?.map((user) => {
-          return <div key={user._id}> {user.name} </div>;
-        })}
-        <p> comments: {hikeComments}</p>
-        <img width={"300px"} src={route?.image} alt={name} />
-      </div>
+
       {createdBy?._id === userId && (
         <>
           {showEditForm ? (
