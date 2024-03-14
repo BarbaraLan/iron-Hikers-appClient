@@ -68,7 +68,6 @@ function HikeIdPage(props) {
   };
 
   const handleEditHikeFormToggle = (event) => {
-    //* THIS NEXT! *//
     event.preventDefault();
     setShowEditForm(!showEditForm);
   };
@@ -111,13 +110,6 @@ function HikeIdPage(props) {
           navigate(`/hikes/${response.data._id}`)
   
           return
-          setName("");
-          setDate("");
-          setRoute("");
-          setStartTime("");
-          setDescription("");
-          setImage("");
-          getAllHikes();
         })
   
         .catch((error) => {
@@ -140,30 +132,6 @@ function HikeIdPage(props) {
       .catch((error) => {
         const errorDescription = error.data.errorMessage;
         setErrorMessage(errorDescription);
-      });
-  };
-  //  TO-DO post user id to attendees
-
-  const addAttendees = () => {
-    axios
-      .post(`${API_URL}/api/user/${userInfo._id}`)
-      .then((response) => {
-        setAttendees(response.data);
-      })
-      .catch((error) => {
-        error;
-      });
-  };
-  //   TO-DO post hike ID into users hike joined array
-
-  const joinedHikes = () => {
-    axios
-      .post(`${API_URL}/api/user/${userInfo._id}`)
-      .then((response) => {
-        setAttendees(response.data);
-      })
-      .catch((error) => {
-        error;
       });
   };
 

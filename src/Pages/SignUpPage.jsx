@@ -27,7 +27,7 @@ function SignUpPage() {
         setErrorMessage(undefined); 
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.data.message;
         setErrorMessage(errorDescription);
       });
   };
