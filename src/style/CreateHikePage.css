@@ -1,8 +1,8 @@
 .createHike-box{
-    background-image: url("../assets/mountain.avif");
+    background-image: url("../assets/mountain4.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90vh;
+    height: 92vh;
 }
 
 .createhike-container {
@@ -24,7 +24,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
     color: #5b5c38;
-    background-color: rgb(254, 251, 231);
+    background-color: rgba(253, 251, 240, 0.836);
     font-family: "Bebas Neue", sans-serif;
 }
 

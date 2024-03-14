@@ -2,7 +2,7 @@
     background-image: url("../assets/mountain2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90vh;
+    height: 92vh;
     overflow-y: scroll;
 }
 
@@ -25,7 +25,7 @@
     font-size: 20px;
     padding: 50px 100px;
     color: #303030;
-    background-color: rgb(254, 251, 231);
+    background-color: rgba(253, 251, 240, 0.836);
     border-radius: 20px;
     width: 70vw;
 }
