@@ -1,13 +1,14 @@
 .routes-box{
-    background-image: url("../assets/userImg.webp");
+    background-image: url("../assets/mountain.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 92vh;
     overflow-y: scroll;
 }
 
 .create-route{
-    margin: 30px;
+    margin: 60px;
+    margin-left: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;

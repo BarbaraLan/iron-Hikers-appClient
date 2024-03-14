@@ -93,16 +93,18 @@ function UserPage() {
     return (
         <div className='user-page-general'>
             {data && (
-                <div className="data">
-                    <h2>User Profile</h2>
-                    <div>Username: {userInfo.name}</div>
-                    <div>Email: {email}</div>
-                    <div>Age: {age}</div>
-                    <div>Hobbies: {hobbies}</div>
-                    <div>Likes: {likes}</div>
-                    <div>Additional Info.: {description}</div>
-                    <div>Selected City: {selectedCity}</div>
-                </div>
+                <>
+                    <h2>welcome back! {userInfo.name}</h2>
+                    <div className="data">
+                        <div>Username: {userInfo.name}</div>
+                        <div>Email: {email}</div>
+                        <div>Age: {age}</div>
+                        <div>Hobbies: {hobbies}</div>
+                        <div>Likes: {likes}</div>
+                        <div>Additional Info.: {description}</div>
+                        <div>Selected City: {selectedCity}</div>
+                    </div>
+                </>
             )}
 
 

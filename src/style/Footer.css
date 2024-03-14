@@ -3,7 +3,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: #869BA6;
+    background-color: #303030; 
+    opacity: 80%;
     padding: 20px;
     bottom: 0px;
     width: 100%;
@@ -13,7 +14,7 @@
 .aboutUs, a {
     text-decoration: none;
     color: rgb(254, 251, 231);
-    background-color: transparent;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 
