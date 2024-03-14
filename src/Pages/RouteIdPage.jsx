@@ -278,7 +278,6 @@ function RouteIdPage(props) {
         </>
       )}
     </div>
-</div>
   );
 }
 export default RouteIdPage;

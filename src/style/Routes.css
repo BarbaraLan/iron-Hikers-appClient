@@ -2,7 +2,7 @@
     background-image: url("../assets/mountain.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 92vh;
+    height: 100vh;
     overflow-y: scroll;
 }
 

@@ -2,7 +2,7 @@
     background-image: url("../assets/mountain8.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 92vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,11 +17,11 @@
     justify-content: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
-    padding: 30px 0px;
+    padding: 10px 0px;
     color: #303030;
     background-color: rgba(253, 251, 240, 0.836);
     border-radius: 20px;
-    width: 70vw;
+    width: 350px;
 }
 
 .join-btn {
@@ -36,7 +36,7 @@
     color: rgb(254, 251, 231);
     background-color: #303030;
     border-radius: 20px;
-    width: 70vw;
+    width: 350px;
 }
 
 .join-btn:hover {
@@ -44,5 +44,5 @@
 }
 
 .hike-id-img{
-    height: 30vh;
+    width: 150px;
 }
