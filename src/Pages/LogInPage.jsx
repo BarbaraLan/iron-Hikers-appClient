@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../style/LogInPage.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+/* import video from '../assets/video-intr.mp4' */
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -36,12 +37,13 @@ function LogInPage() {
       });
   };
 
-
-
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
+       {/*  <video className='video' autoPlay loop muted>
+    <source src={video} type='video/mp4' />
+</video> */}
 
         <div className="login-formcontainer">
           <label className='label2'>

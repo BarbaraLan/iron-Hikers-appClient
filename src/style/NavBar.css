@@ -4,7 +4,6 @@
     align-items:flex-start;
     justify-content: space-between;
     margin-left: 20px;
-    margin-top: 20px;
     margin-right: 20px;
 }
 
@@ -18,27 +17,81 @@
 #logo{
     height: 100px; 
     padding: 10px;
+    margin-top: 15px;
+    transition: all 1s ease;
 }
-
-#logo {
-transition: all 1s ease;
-transform: scale(1);
-}
-
-#logo:active{
-    transform: translate(0px, 3px);
-    -webkit-transform: translate(0px, 3px);
-  }
-
 
 #logo:hover {
-transform: scale(1.5) perspective(1px)
+transform: scale(1.5)
 }
 
-.dashLink:hover , .routes:hover , .userPageLink:hover , .logInLink:hover { 
-padding: 5px;
-}
+#menu-sidebar {
+    height: 100%;
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #303030; 
+    opacity: 60%;
+    overflow-x: hidden; 
+    padding-top: 40px; 
+    transition: 0.5s;
+  }
+  
+  .city-link, .routes, .user-pic {
+    padding: 4px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #989898;
+    display: block;
+    transition: 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+  }
+ 
+  .city-link:hover, .routes:hover, .userPic:hover, .close-btn:hover{
+    background-color:#444;
+  }
+  
+  .open-btn {
+    font-size: 25px;
+    cursor: pointer;
+    color: #303030;
+    padding: 10px 15px;
+    border: none;
+  }
 
-.userPic {
-    height: 20px;
-}
+  .close-btn {
+    font-size: 20px;
+    cursor: pointer;
+    color: #989898;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .close-menu{
+    display: none;
+    transform: translateY(200px);
+  }
+  
+  .open-menu{
+    transform: translateY(0px);
+    display: block;
+  }
+
+  .open-menu:hover {
+    background-color: #444;
+  }
+
+  .userPic {
+      height: 40px;
+  }
+  
+  #menu-sidebar{
+      transition: 300ms;
+      padding: 20px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }

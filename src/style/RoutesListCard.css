@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-around;
     padding: 20px;
-    border: 1px solid rgb(254, 251, 231);
+    border: 1px solid #303030;
     border-radius:35px;
     margin: 30px;
     text-wrap: wrap;
@@ -26,5 +26,5 @@
     justify-content: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 15px;
-    color: rgb(254, 251, 231);
+    color: #303030;
 }

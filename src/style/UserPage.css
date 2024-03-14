@@ -1,8 +1,8 @@
 .user-page-general {
-    background-image: url("../assets/familyHiking.avif");
+    background-image: url("../assets/mountain.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 92vh;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 28px;
-    color: rgb(254, 251, 231);
+    padding: 30px;
+    color: #303030;
     font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
     border: 1px solid rgb(254, 251, 231);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
@@ -30,7 +31,7 @@
     justify-content: space-around;
     margin-bottom: 20px;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 25px;
+    font-size: 18px;
     color: rgb(254, 251, 231)
 }
 
@@ -44,7 +45,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     color: #5b5c38;
-    background-color: rgb(254, 251, 231);
+    background-color: rgba(253, 251, 240, 0.836);
     font-family: "Bebas Neue", sans-serif;
 }
 
