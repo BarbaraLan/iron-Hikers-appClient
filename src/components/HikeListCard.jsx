@@ -9,7 +9,7 @@ function HikeListCard(props) {
     date,
     startTime,
     attendees,
-    hikeComments,
+    hikeComments
   } = props.hike;
 
   return (
@@ -26,7 +26,7 @@ function HikeListCard(props) {
               <div>
                 {attendees? 
                 attendees.map((attendee)=>{
-                  return <span>{attendee.name}, </span>
+                  return <span key="attendee._id">{attendee.name}, </span>
                 })
                 :
                 <p>No one has signed up yet</p>
