@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext} from "../context/auth.context"
 import axios from "axios";
 import '../style/CreateHikePage.css'
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,9 @@ const API_URL = "http://localhost:5005/api";
 
 function CreateHikePage() {
   const navigate = useNavigate()
+
+  const {userInfo} = useContext(AuthContext);
+  const clientId = userInfo._id;
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -19,7 +23,7 @@ function CreateHikePage() {
   const [existingRoutes, setExistingRoutes] = useState([]);
   const [hikes, setHikes] = useState([]);
 
-  const newHike = { name, date, route, startTime, description };
+  const newHike = { clientId, name, date, route, startTime, description };
 
   const getAllRoutes = () => {
     axios

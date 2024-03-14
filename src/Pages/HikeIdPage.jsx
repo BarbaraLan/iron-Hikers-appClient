@@ -14,7 +14,7 @@ function HikeIdPage(props) {
     };
 
     const hikeId = useParams().hikeId
-    const { name, description, route, hikeComments, addedBy, image } = existingRoute;
+    const { name, description, route, hikeComments, createdBy, image } = existingRoute;
 
     const hikeIdCall = () => {
         axios
@@ -48,7 +48,7 @@ function HikeIdPage(props) {
             <div className='hikeInfoId'>
                 <p> description:  {description}</p>
                 <p> route {route}</p>
-                <p> Created By:{addedBy}</p>
+                <p> Created By:{createdBy}</p>
                 <p> comments: {hikeComments}</p>
             </div>
             <button className='join-btn' onClick={handleJoin}>JOIN</button>
