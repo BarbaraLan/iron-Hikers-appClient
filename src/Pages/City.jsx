@@ -73,7 +73,7 @@ function CityPage() {
     return (
         <>
             {showForm ? (
-                <div>
+                <div className='select-city-total'>
                     <h2>Select Your City </h2>
                     <div className='select-city-box'>
                         <div className='country'>

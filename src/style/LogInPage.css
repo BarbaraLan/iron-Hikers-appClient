@@ -2,7 +2,7 @@
   background-image: url("../assets/mountain3.avif");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 95vh;
+  height: 92vh;
   overflow-y: scroll;
   }
   
@@ -24,6 +24,7 @@
     font-family: "Bebas Neue", sans-serif;
     font-size: 18px;
     width: 270px;
+    border-radius: 20px;
   }
 
   .login-button:hover, .signup-button:hover{

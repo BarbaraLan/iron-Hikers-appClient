@@ -19,6 +19,7 @@
     padding: 10px;
     margin-top: 15px;
     transition: all 1s ease;
+    position: relative;
 }
 
 #logo:hover {
@@ -58,6 +59,7 @@ transform: scale(1.5)
     color: #303030;
     padding: 10px 15px;
     border: none;
+    margin-top: 20px;
   }
 
   .close-btn {

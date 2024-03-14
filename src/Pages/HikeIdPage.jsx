@@ -91,11 +91,9 @@ function HikeIdPage(props) {
 
     return (
         <div className='hike-box'>
-            <div className='hikeImg'>
-                <img src={image} alt="" />
-            </div>
-            <h3> {name} </h3>
+            <h2> {name} </h2>
             <div className='hikeInfoId'>
+                <img className='hikeImg' src={image} alt="" />
                 <p> description:  {description}</p>
                 <p> route {route?.name}</p>
                 <p> Created By:{createdBy?.name}</p>
@@ -106,7 +104,7 @@ function HikeIdPage(props) {
                     )
                 })}
                 <p> comments: {hikeComments}</p>
-                <img width={"300px"} src={route?.image} alt={name} /> 
+                <img className='hike-id-img' src={route?.image} alt={name} /> 
             </div>
             <button className='join-btn' onClick={handleJoin}>JOIN</button>
         </div>
